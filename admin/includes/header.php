@@ -24,7 +24,7 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="home.php">Register</a></li>
 					<li><a href="#footer">Contact</a></li>
-					<li><a href="./admin/index.php">Admin</a></li>
+					<li><a href="index.php">Admin</a></li>
 				</ul>
 			</li>
 		</ul>

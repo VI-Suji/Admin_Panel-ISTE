@@ -9,9 +9,9 @@
 			</li>
 			<li><a href="upload.php"><i class="fa fa-upload"></i> &nbsp;Upload</a>
 			</li>
-			<!--<li><a href="notification.php"><i class="fa fa-bell"></i> &nbsp;Notification <sup style="color:red">*</sup></a>
+			<li><a href="search.php"><i class="fa fa-search"></i> &nbsp;Search <sup style="color:red">*</sup></a>
 			</li>
-			<li><a href="deleteduser.php"><i class="fa fa-user-times"></i> &nbsp;Deleted Users</a>
+			<!--<li><a href="deleteduser.php"><i class="fa fa-user-times"></i> &nbsp;Deleted Users</a>
 			</li>-->
 			<li><a href="download.php"><i class="fa fa-download"></i> &nbsp;Download</a>
 			</li>
