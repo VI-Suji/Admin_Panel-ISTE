@@ -2,7 +2,7 @@
 include('includes/config.php');
 if(isset($_POST['success']))
 {
-	echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
+	// echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
 $file = $_FILES['image']['name'];
 $file_loc = $_FILES['image']['tmp_name'];
 $folder="images/"; 
@@ -32,7 +32,7 @@ echo "<script type='text/javascript'> document.location = 'add-event.php'; </scr
 }
 else 
 {
-$error="Something went wrong. Please try again";
+	echo "<script type='text/javascript'>alert('Something went wrong. Please fill and try again');</script>";
 }
 
 }
@@ -49,7 +49,7 @@ $error="Something went wrong. Please try again";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Edit Event</title>
+	<title>Add Event</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -97,11 +97,11 @@ $error="Something went wrong. Please try again";
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="page-title">Edit User </h3>
+						<h3 class="page-title">Add Event </h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">Edit Info</div>
+									<div class="panel-heading">Event Info</div>
 
 									<div class="panel-body">
 <form method="post" class="form-horizontal" enctype="multipart/form-data" name="imgform">

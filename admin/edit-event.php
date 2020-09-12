@@ -19,34 +19,37 @@ if(isset($_POST['submit']))
   {
 	$file = $_FILES['image']['name'];
 	$file_loc = $_FILES['image']['tmp_name'];
-	$folder="../images/";
+	$folder="images/";
 	$new_file_name = strtolower($file);
 	$final_file=str_replace(' ','-',$new_file_name);
-	
+    
 	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$gender=$_POST['gender'];
-	$mobileno=$_POST['mobileno'];
-	$designation=$_POST['designation'];
-	$idedit=$_POST['idedit'];
-	$image=$_POST['image'];
-
+    $description=$_POST['description'];
+    $date=$_POST['date'];
+    $image=$_POST['image'];
+    
 	if(move_uploaded_file($file_loc,$folder.$final_file))
 		{
 			$image=$final_file;
 		}
+        // echo "<script type='text/javascript'>alert('.$editid.');</script>";
+        // echo "<script type='text/javascript'>alert('.$name.');</script>";
+        // echo "<script type='text/javascript'>alert('.$description.');</script>";
+        // echo "<script type='text/javascript'>alert('.$date.');</script>";
+        // echo "<script type='text/javascript'>alert('.$image.');</script>";
 
-	$sql="UPDATE users SET name=(:name), email=(:email), gender=(:gender), mobile=(:mobileno), designation=(:designation), Image=(:image) WHERE id=(:idedit)";
-	$query = $dbh->prepare($sql);
+	$sql="UPDATE events SET name=(:name), description=(:description), date=(:date), image=(:image) WHERE id=$editid";
+    $query = $dbh->prepare($sql);
 	$query-> bindParam(':name', $name, PDO::PARAM_STR);
-	$query-> bindParam(':email', $email, PDO::PARAM_STR);
-	$query-> bindParam(':gender', $gender, PDO::PARAM_STR);
-	$query-> bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
-	$query-> bindParam(':designation', $designation, PDO::PARAM_STR);
+    $query-> bindParam(':description', $description, PDO::PARAM_STR);
+    $query-> bindParam(':date', $date, PDO::PARAM_STR);
 	$query-> bindParam(':image', $image, PDO::PARAM_STR);
-	$query-> bindParam(':idedit', $idedit, PDO::PARAM_STR);
-	$query->execute();
-	$msg="Information Updated Successfully";
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    echo "<script type='text/javascript'>alert('.$lastInsertId.');</script>";
+    if($lastInsertId){
+        $msg="Information Updated Successfully";
+    }
 }    
 ?>
 
@@ -61,7 +64,7 @@ if(isset($_POST['submit']))
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Edit User</title>
+	<title>Edit Event</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -129,7 +132,7 @@ if(isset($_POST['submit']))
 <form method="post" class="form-horizontal" enctype="multipart/form-data" name="imgform">
 <div class="form-group">
 <label class="col-sm-2 control-label">Name<span style="color:red">*</span></label>
-<div class="col-sm-4">
+<div class="col-sm-5 col-lg-10">
 <input type="text" name="name" class="form-control" required value="<?php echo htmlentities($result->name);?>">
 </div>
 <!-- <label class="col-sm-2 control-label">Email<span style="color:red">*</span></label>
@@ -142,7 +145,7 @@ if(isset($_POST['submit']))
 <div class="form-group">
 <label class="col-sm-2 control-label">Description</label>
 <div class="col-sm-5 col-lg-10">
-<textarea class="form-control" rows = "5" name = "description">
+<textarea class="form-control" rows = "5" name = "description"><?php echo htmlentities($result->description);?>
 </textarea><br>
 </div>
 </div>

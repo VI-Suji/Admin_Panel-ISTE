@@ -79,7 +79,7 @@ include('./admin/includes/config.php');
                     <!-- d-lg-block -->
                     <ul class="site-menu js-clone-nav d-none">
                       <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                       </li>
                       <!-- <li><a href="sermons.html">Sermons</a></li>
                       <li class="has-children">
@@ -101,9 +101,9 @@ include('./admin/includes/config.php');
 
                         </ul>
                       </li> -->
-                      <li><a href="event.html">Events</a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="event.php">Events</a></li>
+                      <li><a href="about.php">About</a></li>
+                      <li><a href="contact.php">Contact</a></li>
                     </ul>
                   </div>
                 </nav>
@@ -250,47 +250,18 @@ include('./admin/includes/config.php');
                 <div class="container-fluid">
                 <div id="previous" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                        <div class="carousel-item col-md-4 active">
-                            <div class="card" >
-                            <img src="images/previous events/FB_IMG_1569047483757.jpg" class="card-img-top" alt="App Development WS">
-                            <div class="card-body">
-                              <h5 class="card-title">App Development Workshop</h5>
-                              <p class="card-text"><blockquote>&ldquo;The ISTE students chapter of TKMCE conducted a 2 day workshop on App Development for the students of TKMCE. The workshop was held from 27th to 28th October at the CCFL Lab.<br><br>
-                                &nbsp;
-                                &rdquo;
-                              </blockquote></p>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="carousel-item col-md-4">
-                            <div class="card" >
-                            <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" class="card-img-top" alt="Gaming Royale">
-                            <div class="card-body">
-                                <h5 class="card-title">Gaming Royale</h5>
-                                <p class="card-text"><blockquote>&ldquo;As part of the techno cultural fest HESTIA 2K19 held from 28th to 31st March 2019, the ISTE students chapter of TKMCE conducted the  Gaming Royale, a platform for entertainmental games that added a taste of enthusiasm to the tech fest.<br>&rdquo;</blockquote></p>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item col-md-4">
-                            <div class="card" >
-                                <img src="images/previous events/67059419_809343279467798_741432067154248475_n.jpg" class="card-img-top" alt="Machine Learning WS">
-                                <div class="card-body">
-                                  <h5 class="card-title">Machine Learning Workshop</h5>
-                                  <p class="card-text"><blockquote>&ldquo;Machine Learning, is an application of Artificial Intelligence, focuses on the development of computer programs that can access data and use it learn for themselves. ISTE students chapter TKMCE conducted a 2 day workshop on Machine Learning.&rdquo;</blockquote></p>
-                                </div>
-                              </div>
-</div>
                               <?php 
 $sql = "SELECT * from  events ";
 $query = $dbh -> prepare($sql);
 $query->execute();
+$cnt=0;
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-{				
+{				if($result->name && $cnt==0){
     ?>
-    <div class="carousel-item col-md-4">      
+    <div class="carousel-item col-md-4 active">      
                   <div class="card">
                     <img src="./admin/images/<?php echo htmlentities($result->image) ?>"
                       class="card-img-top" alt="">
@@ -303,7 +274,22 @@ foreach($results as $result)
                     </div>
                   </div>
                 </div>
-                <?php }} ?>
+                <?php $cnt=1; ?>
+<?php }else{?>
+  <div class="carousel-item col-md-4">      
+                  <div class="card">
+                    <img src="./admin/images/<?php echo htmlentities($result->image) ?>"
+                      class="card-img-top" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                      <p class="card-text">
+                        <blockquote>&ldquo;<?php echo htmlentities($result->description) ?>&rdquo;
+                        </blockquote>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <?php }}} ?>
                     </div>
                     <a class="carousel-control-prev w-auto" href="#previous" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
