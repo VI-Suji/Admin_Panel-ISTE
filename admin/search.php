@@ -1,57 +1,7 @@
-<<?php
+<?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{	
-header('location:index.php');
-}
-else{
-// echo "<script>alert('Hello');</script>";
-if(isset($_POST['submit']))
-{
-$name=$_POST['name'];
-$sql ="SELECT * FROM users WHERE name=:name";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':name', $name, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
-    echo "<script>alert('Correct Details');</script>";
-    foreach($results as $result){
-        echo "<script>alert('.$result->name.');</script>";
-    }
-} else{
-  
-  echo "<script>alert('Invalid Details');</script>";
-
-}
-
-}
 ?>
-
-	<!-- Loading Scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
-	<script type="text/javascript">
-			    $(document).ready(function () {          
-					setTimeout(function() {
-						$('.succWrap').slideUp("slow");
-					}, 3000);
-					});
-	</script>
-		
-</body>
-</html>
-<?php } ?>
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -66,6 +16,10 @@ if($query->rowCount() > 0)
 	
 	<title>Search User</title>
 
+    <link rel="stylesheet" href="csss/styles.css">
+    <link rel="stylesheet" href="csss/style.css">
+    <link rel="stylesheet" href="csss/trial.css" />
+    <link rel="stylesheet" href="csss/fileinput.min.css">
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- Sandstone Bootstrap CSS -->
@@ -123,7 +77,7 @@ if($query->rowCount() > 0)
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
 									<div class="panel-body">
-<form method="post" class="form-horizontal" enctype="multipart/form-data">
+<form action="result.php" method="post" class="form-horizontal" enctype="multipart/form-data">
 <div class="form-group">
 <label class="col-sm-2 control-label">Search ID<span style="color:red">*</span></label>
 <div class="col-sm-4">
@@ -152,23 +106,5 @@ if($query->rowCount() > 0)
 			</div>
 		</div>
 	</div>
-
-	<!-- Loading Scripts
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
-	<script type="text/javascript">
-				$(document).ready(function () {          
-					setTimeout(function() {
-						$('.succWrap').slideUp("slow");
-					}, 3000);
-					}); -->
-	</script>
 </body>
 </html>

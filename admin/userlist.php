@@ -49,10 +49,6 @@ if(isset($_REQUEST['unconfirm']))
 	$msg="Changes Sucessfully";
 	}
 
-
-
-
-
  ?>
 
 <!doctype html>
