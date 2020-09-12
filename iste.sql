@@ -162,6 +162,7 @@ ALTER TABLE `tbl_info`
 ALTER TABLE `tbl_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+<<<<<<< HEAD
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
@@ -184,3 +185,5 @@ CREATE TABLE `execom` (
 
 ALTER TABLE `execom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+=======
+>>>>>>> 3d43f5e39377924485351795aacd430e0192ab66
