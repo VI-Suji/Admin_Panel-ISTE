@@ -1,47 +1,53 @@
+<?php
+session_start();
+include('./admin/includes/config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Official Website Of ISTE TKMCE Chapter</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152957826-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+  <title>Official Website Of ISTE TKMCE Chapter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  gtag('config', 'UA-152957826-1');
-</script>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152957826-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152957826-1');
+  </script>
 
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
-    
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <!-- Custom CSS for previous events animation -->
-    <link rel="stylesheet" href="css/pe.css">
-    
-  </head>
-  <body>
-  
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Custom CSS for previous events animation -->
+  <link rel="stylesheet" href="css/pe.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -52,23 +58,25 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
-    
-    
+
+
     <div class="site-navbar-wrap js-site-navbar bg-white">
-      
+
       <div class="container">
         <div class="site-navbar bg-light">
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="mb-0 site-logo"><a href="index.html"><img src="images/iste.png" alt="ISTE TKMCE" width="80" height="80"></a></h2>
+                <h2 class="mb-0 site-logo"><a href="index.html"><img src="images/iste.png" alt="ISTE TKMCE" width="80"
+                      height="80"></a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
                   <div class="container">
                     <!-- d-lg-none -->
-                    <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
-                     <!-- d-lg-block -->
+                    <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#"
+                        class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+                    <!-- d-lg-block -->
                     <ul class="site-menu js-clone-nav d-none">
                       <li class="active">
                         <a href="index.html">Home</a>
@@ -105,23 +113,12 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Carousel Start -->
     <div class="slide-one-item home-slider owl-carousel">
-      
-      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center" data-aos="fade">
-              <!-- <span class="caption mb-3">Official Website Of ISTE TKMCE</span> -->
-              <h1 class="mb-4">ISTE<br> TKM College of Engineering</h1>
-              <!-- <p><a href="#" class="text-white py-3 px-4">Official Website Of ISTE TKMCE</a></p> -->
-            </div>
-          </div>
-        </div>
-      </div>  
 
-      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade"
+        data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
@@ -131,7 +128,20 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
+
+      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center" data-aos="fade">
+              <!-- <span class="caption mb-3">Official Website Of ISTE TKMCE</span> -->
+              <h1 class="mb-4">ISTE<br> TKM College of Engineering</h1>
+              <!-- <p><a href="#" class="text-white py-3 px-4">Official Website Of ISTE TKMCE</a></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -175,14 +185,14 @@
               <!-- <h1>Animation is Fun!</h1> -->
               <p class="text-white" id="event">Event One</p>
             </div>
-            
+
           </div>
           <!-- <div class="col-md-6">
             <span class="caption">The camp meeting will start in</span>
             <div id="date-countdown"></div>    
           </div> -->
         </div>
-        
+
       </div>
     </div>
 
@@ -228,83 +238,6 @@
 
     <div class="site-section block-14 bg-light">
 
-        <div class="container">
-          
-          <div class="row">
-            <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-              <h2>Upcoming Events</h2>
-            </div>
-          </div>
-  
-              <div class="top-content">
-                  <div class="container-fluid">
-                  <div id="upcoming" class="carousel slide w-100" data-ride="carousel">
-                      <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                          <div class="carousel-item col-md-4 active">
-                              <div class="card" >
-                              <img src="images/previous events/FB_IMG_1569047483757.jpg" class="card-img-top" alt="App Development WS">
-                              <div class="card-body">
-                                <h5 class="card-title">App Development Workshop</h5>
-                                <p class="card-text"><blockquote>&ldquo;The ISTE students chapter of TKMCE conducted a 2 day workshop on App Development for the students of TKMCE. The workshop was held from 27th to 28th October at the CCFL Lab.<br><br>
-                                  &nbsp;
-                                  &rdquo;
-                                </blockquote></p>
-                              </div>
-                          </div>
-                          </div>
-                          <div class="carousel-item col-md-4">
-                              <div class="card" >
-                              <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" class="card-img-top" alt="Gaming Royale">
-                              <div class="card-body">
-                                  <h5 class="card-title">Gaming Royale</h5>
-                                  <p class="card-text"><blockquote>&ldquo;As part of the techno cultural fest HESTIA 2K19 held from 28th to 31st March 2019, the ISTE students chapter of TKMCE conducted the  Gaming Royale, a platform for entertainmental games that added a taste of enthusiasm to the tech fest.<br>&rdquo;</blockquote></p>
-                                </div>
-                              </div>
-                          </div>
-                          <div class="carousel-item col-md-4">
-                              <div class="card" >
-                                  <img src="images/previous events/67059419_809343279467798_741432067154248475_n.jpg" class="card-img-top" alt="Machine Learning WS">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Machine Learning Workshop</h5>
-                                    <p class="card-text"><blockquote>&ldquo;Machine Learning, is an application of Artificial Intelligence, focuses on the development of computer programs that can access data and use it learn for themselves. ISTE students chapter TKMCE conducted a 2 day workshop on Machine Learning.&rdquo;</blockquote></p>
-                                  </div>
-                                </div>
-                      <!--
-                          <div class="carousel-item col-md-4">
-                                  <div class="card card-body">
-                                      <img class="img-fluid" src="http://placehold.it/380?text=4">
-                                  </div>
-                              </div>
-                      
-                          <div class="carousel-item col-md-4">
-                                  <div class="card card-body">
-                                      <img class="img-fluid" src="http://placehold.it/380?text=5">
-                                  </div>
-                              </div>
-                          <div class="carousel-item col-md-4">
-                                  <div class="card card-body">
-                                      <img class="img-fluid" src="http://placehold.it/380?text=6">
-  
-                              </div>
-                          </div>
-                      -->
-                      </div>
-                      <a class="carousel-control-prev w-auto" href="#upcoming" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next w-auto" href="#upcoming" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          </div>
-          </div>
-          </div>
-    <div class="site-section block-14 bg-light">
-
       <div class="container">
         
         <div class="row">
@@ -346,25 +279,31 @@
                                   <p class="card-text"><blockquote>&ldquo;Machine Learning, is an application of Artificial Intelligence, focuses on the development of computer programs that can access data and use it learn for themselves. ISTE students chapter TKMCE conducted a 2 day workshop on Machine Learning.&rdquo;</blockquote></p>
                                 </div>
                               </div>
-                    <!--
-                        <div class="carousel-item col-md-4">
-                                <div class="card card-body">
-                                    <img class="img-fluid" src="http://placehold.it/380?text=4">
-                                </div>
-                            </div>
-                    
-                        <div class="carousel-item col-md-4">
-                                <div class="card card-body">
-                                    <img class="img-fluid" src="http://placehold.it/380?text=5">
-                                </div>
-                            </div>
-                        <div class="carousel-item col-md-4">
-                                <div class="card card-body">
-                                    <img class="img-fluid" src="http://placehold.it/380?text=6">
-
-                            </div>
-                        </div>
-                    -->
+</div>
+                              <?php 
+$sql = "SELECT * from  events ";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{				
+    ?>
+    <div class="carousel-item col-md-4">      
+                  <div class="card">
+                    <img src="./admin/images/<?php echo htmlentities($result->image) ?>"
+                      class="card-img-top" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                      <p class="card-text">
+                        <blockquote>&ldquo;<?php echo htmlentities($result->description) ?>&rdquo;
+                        </blockquote>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <?php }} ?>
                     </div>
                     <a class="carousel-control-prev w-auto" href="#previous" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
@@ -379,28 +318,30 @@
         </div>
         </div>
         </div>
-        </div>
+</div>
 
-        <!-- <div class="nonloop-block-14 owl-carousel">
+    
+
+  <!-- <div class="nonloop-block-14 owl-carousel">
           
           <div class="p-4">
             <div class="d-flex block-testimony"> -->
-              <!-- <div class="person mr-3"> -->
-               <!-- <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded">-->
-               <!-- <div class="img"> <img src="images/previous events/FB_IMG_1569047483757.jpg" alt="00000"></div> HERE THE IMAGE IN THE PREVIOUS EVENT -1 -->
-               <!-- </div> -->
-              <!-- <div>
+  <!-- <div class="person mr-3"> -->
+  <!-- <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded">-->
+  <!-- <div class="img"> <img src="images/previous events/FB_IMG_1569047483757.jpg" alt="00000"></div> HERE THE IMAGE IN THE PREVIOUS EVENT -1 -->
+  <!-- </div> -->
+  <!-- <div>
                 <h2 class="h5">Katie Johnson</h2>
                 <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
               </div> -->
-            <!-- </div> -->
-          <!-- </div> -->
-          <!-- <div class="p-4"> -->
-            <!-- <div class="d-flex block-testimony"> -->
-              <!-- <div class="person mr-3">
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- <div class="p-4"> -->
+  <!-- <div class="d-flex block-testimony"> -->
+  <!-- <div class="person mr-3">
                 <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded">
               </div> -->
-              <!-- <div>
+  <!-- <div>
                 <h2 class="h5">App Development Workshop</h2>
                 <blockquote>&ldquo;<p>The ISTE students chapter of TKMCE conducted a 2 day workshop on App Development for the students of TKMCE. The workshop was held from 27th to 28th October at the CCFL Lab.</p>&rdquo;</blockquote>
                 <a href="#">Read More...</a>
@@ -410,17 +351,17 @@
 
           <div class="p-4">
               <div class="d-flex block-testimony"> -->
-                <!-- <div class="person mr-3"> -->
-                 <!-- <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded">-->
-                 <!-- <div class="img"> <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" alt="00000"></div> HERE THE IMAGE IN THE PREVIOUS EVENT -1 -->
-                 <!-- </div> -->
-                <!-- <div>
+  <!-- <div class="person mr-3"> -->
+  <!-- <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded">-->
+  <!-- <div class="img"> <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" alt="00000"></div> HERE THE IMAGE IN THE PREVIOUS EVENT -1 -->
+  <!-- </div> -->
+  <!-- <div>
                   <h2 class="h5">Katie Johnson</h2>
                   <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
                 </div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-            <!-- <div class="p-4"> 
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- <div class="p-4"> 
               <div class="d-flex block-testimony">
                  <div class="person mr-3">
                   <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded">
@@ -439,14 +380,14 @@
                 <div class="img"> <img src="images/previous events/67059419_809343279467798_741432067154248475_n.jpg" alt="00000"></div>
 
                </div> -->
-              <!-- <div>
+  <!-- <div>
                 <h2 class="h5">Shane Holmes</h2>
                 <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
               </div> 
             </div>-->
-          <!-- </div> -->
-          <!-- <div class="p-4"> -->
-            <!-- <div class="d-flex block-testimony">
+  <!-- </div> -->
+  <!-- <div class="p-4"> -->
+  <!-- <div class="d-flex block-testimony">
               <div class="person mr-3">
                 <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded">
               </div>
@@ -463,9 +404,9 @@
       </div>
       
     </div> -->
-    <!-- Section to work on new Previous Events End -->
+  <!-- Section to work on new Previous Events End -->
 
-    <!-- <div class="site-section">
+  <!-- <div class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto text-center mb-5 section-heading">
@@ -503,11 +444,11 @@
         </div>
       </div>
     </div> -->
-    
 
 
 
-    <!-- <div class="py-5 quick-contact-info">
+
+  <!-- <div class="py-5 quick-contact-info">
       <div class="container">
         <div class="row">
           <div class="col-md-4 text-center">
@@ -538,8 +479,8 @@
       </div>
     </div> -->
 
-    
-    <!-- <footer class="site-footer" style="background-image: url('images/hero_1.jpg');">
+
+  <!-- <footer class="site-footer" style="background-image: url('images/hero_1.jpg');">
       <div class="container">
         
 
@@ -602,44 +543,45 @@
       </div>
     </footer> -->
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          
-          <div class="col-md-6 text-center  ml-auto">
-    
-             
-            <h2 class="footer-heading  pr-3  ml-5 mb-4">Follow Us </h2>
-           <a href="#about-section" class="smoothscroll pl-0 pr-3 fb"><span class="icon-facebook"></span></a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 text-center  ml-auto">
+
+
+          <h2 class="footer-heading  pr-3  ml-5 mb-4">Follow Us </h2>
+          <a href="#about-section" class="smoothscroll pl-0 pr-3 fb"><span class="icon-facebook"></span></a>
           <a href="#" class="pl-3 pr-3  twtr"><span class="icon-twitter"></span></a>
           <a href="#" class="pl-3 pr-3 insta"><span class="icon-instagram"></span></a>
           <a href="#" class="pl-3 pr-3  lkdin"><span class="icon-linkedin"></span></a>
-            </form>
-          </div>
-         
-          <div class="col-md-6 text-center  ml-auto">
-              <h2 class="footer-heading  pr-3  ml-5 mb-4">Features </h2>
-              <a href="#">Home</a>
-              <a href="#">Events</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-          </div>
-          
+          </form>
         </div>
-        <div class="row pt-3 mt-3 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-3">
-              <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Devoloped by 404 ISTE 
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-            </div>
-          </div>
-    
+
+        <div class="col-md-6 text-center  ml-auto">
+          <h2 class="footer-heading  pr-3  ml-5 mb-4">Features </h2>
+          <a href="#">Home</a>
+          <a href="#">Events</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
         </div>
+
       </div>
-    </footer>
+      <div class="row pt-3 mt-3 text-center">
+        <div class="col-md-12">
+          <div class="border-top pt-3">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Devoloped by 404 ISTE
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -654,57 +596,57 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
 
-  
+
   <script src="js/mediaelement-and-player.min.js"></script>
 
   <script src="js/main.js"></script>
-    
+
 
   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+    document.addEventListener('DOMContentLoaded', function () {
+      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
 
-                for (var i = 0; i < total; i++) {
-                    new MediaElementPlayer(mediaElements[i], {
-                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
-                        shimScriptAccess: 'always',
-                        success: function () {
-                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
-                            for (var j = 0; j < targetTotal; j++) {
-                                target[j].style.visibility = 'visible';
-                            }
-                  }
-                });
-                }
-            });
-
-            // Owl Carousel options
-            var owl = $('#execomm-carousel');
-            owl.owlCarousel({
-                loop:true,
-                autoplay:true,
-                margin:10,
-                autoplayTimeout:1000,
-                autoplayHoverPause:true
-            });
-
-            // Upcoming Events JS Code
-            var eventList = ['Event One', 'Event Two', 'Event Three', 'Event four'];
-            var i = 1;
-            function changeEvent()
-            {
-              
-              $('#event').animate({marginLeft: "-=250px"}, ()=>{
-                $('#event').animate({marginLeft: "+=250px"}, ()=>{
-                  $('#event').text(eventList[i]);
-                });
-              });
-              i++;
-              if(i >= eventList.length)
-                i = 0;
+      for (var i = 0; i < total; i++) {
+        new MediaElementPlayer(mediaElements[i], {
+          pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+          shimScriptAccess: 'always',
+          success: function () {
+            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+            for (var j = 0; j < targetTotal; j++) {
+              target[j].style.visibility = 'visible';
             }
-            setInterval(changeEvent, 3000);
-    </script>
+          }
+        });
+      }
+    });
 
-  </body>
+    // Owl Carousel options
+    var owl = $('#execomm-carousel');
+    owl.owlCarousel({
+      loop: true,
+      autoplay: true,
+      margin: 10,
+      autoplayTimeout: 1000,
+      autoplayHoverPause: true
+    });
+
+    // Upcoming Events JS Code
+    var eventList = ['Event One', 'Event Two', 'Event Three', 'Event four'];
+    var i = 1;
+    function changeEvent() {
+
+      $('#event').animate({ marginLeft: "-=250px" }, () => {
+        $('#event').animate({ marginLeft: "+=250px" }, () => {
+          $('#event').text(eventList[i]);
+        });
+      });
+      i++;
+      if (i >= eventList.length)
+        i = 0;
+    }
+    setInterval(changeEvent, 3000);
+  </script>
+
+</body>
+
 </html>

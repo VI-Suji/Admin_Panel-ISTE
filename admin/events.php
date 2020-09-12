@@ -14,7 +14,7 @@ error_reporting(0);
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Search User</title>
+	<title>Events</title>
 
     <link rel="stylesheet" href="csss/styles.css">
     <link rel="stylesheet" href="csss/style.css">

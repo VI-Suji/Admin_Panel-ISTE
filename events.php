@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('./admin/includes/config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -93,63 +97,32 @@
           </div>
         </div>
         <div class="row" >
+<?php $sql = "SELECT * from  events ";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{				
+    // echo "<script type='text/javascript'>alert('.$result->name.');</script>";
+    ?>
           <div class="col-md-4 col-sm-12 mb-3 ">
             <div class="card" >
-              <img src="images/previous events/FB_IMG_1569047483757.jpg" class="card-img-top" alt="App Development WS">
+              <img src="./admin/images/<?php echo htmlentities($result->image) ?>" class="card-img-top" alt="">
               <div class="card-body">
-                <h5 class="card-title">App Development Workshop</h5>
-                <p class="card-text"><blockquote>&ldquo;The ISTE students chapter of TKMCE conducted a 2 day workshop on App Development for the students of TKMCE. The workshop was held from 27th to 28th October at the CCFL Lab.<br><br>
+                <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                <p class="card-text"><blockquote>&ldquo;<?php echo htmlentities($result->description) ?><br><br>
                   &nbsp;
                   &rdquo;
                 </blockquote></p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-12 mb-3 ">
-            <div class="card" >
-              <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" class="card-img-top" alt="Gaming Royale">
-              <div class="card-body">
-                <h5 class="card-title">Gaming Royale</h5>
-                <p class="card-text"><blockquote>&ldquo;As part of the techno cultural fest HESTIA 2K19 held from 28th to 31st March 2019, the ISTE students chapter of TKMCE conducted the  Gaming Royale, a platform for entertainmental games that added a taste of enthusiasm to the tech fest.<br>&rdquo;</blockquote></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-12 mb-3 ">
-            <div class="card" >
-              <img src="images/previous events/67059419_809343279467798_741432067154248475_n.jpg" class="card-img-top" alt="Machine Learning WS">
-              <div class="card-body">
-                <h5 class="card-title">Machine Learning Workshop</h5>
-                <p class="card-text"><blockquote>&ldquo;Machine Learning, is an application of Artificial Intelligence, focuses on the development of computer programs that can access data and use it learn for themselves. ISTE students chapter TKMCE conducted a 2 day workshop on Machine Learning.&rdquo;</blockquote></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row" >
-          <div class="col-md-4 col-sm-12 mb-3 ">
-            <div class="card" >
-              <img src="images/previous events/FB_IMG_1569047483757.jpg" class="card-img-top" alt="App Development WS">
-              <div class="card-body">
-                <h5 class="card-title">App Development Workshop</h5>
-                <p class="card-text"><blockquote>&ldquo;The ISTE students chapter of TKMCE conducted a 2 day workshop on App Development for the students of TKMCE. The workshop was held from 27th to 28th October at the CCFL Lab.<br><br>
-                  &nbsp;
-                  &rdquo;
-                </blockquote></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-12 mb-3 ">
-            <div class="card" >
-              <img src="images/previous events/67578077_2348099588603456_5024053929711739326_n.jpg" class="card-img-top" alt="Gaming Royale">
-              <div class="card-body">
-                <h5 class="card-title">Gaming Royale</h5>
-                <p class="card-text"><blockquote>&ldquo;As part of the techno cultural fest HESTIA 2K19 held from 28th to 31st March 2019, the ISTE students chapter of TKMCE conducted the  Gaming Royale, a platform for entertainmental games that added a taste of enthusiasm to the tech fest.<br>&rdquo;</blockquote></p>
-              </div>
-            </div>
-          </div>
-        </div>
-         </div>
-    </div>
-
+<?php }} ?>
+</div>
+</div>
+</div>
 <!--
   </div> -->
  

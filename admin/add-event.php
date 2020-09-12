@@ -2,7 +2,7 @@
 include('includes/config.php');
 if(isset($_POST['success']))
 {
-
+	echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
 $file = $_FILES['image']['name'];
 $file_loc = $_FILES['image']['tmp_name'];
 $folder="images/"; 
@@ -28,7 +28,7 @@ $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
 echo "<script type='text/javascript'>alert('Event Updated Succesfully');</script>";
-echo "<script type='text/javascript'> document.location = 'events.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'add-event.php'; </script>";
 }
 else 
 {
@@ -49,7 +49,7 @@ $error="Something went wrong. Please try again";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Edit User</title>
+	<title>Edit Event</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
