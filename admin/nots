@@ -290,3 +290,7 @@ $error="Something went wrong. Please try again";
 
 </body>
 </html>
+
+<input type="email" name="email" class="form-control" required value="<?php echo htmlentities($result->email);?>">
+<input type="text" name="designation" class="form-control" required value="<?php echo htmlentities($result->designation);?>">
+<input type="text" name="mobile" class="form-control" required value="<?php echo htmlentities($result->mobile);?>">
