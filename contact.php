@@ -87,6 +87,8 @@
                       <li><a href="event.php">Events</a></li>
                       <li><a href="about.php">About</a></li>
                       <li class="active"><a href="contact.php">Contact</a></li>
+                      <li><a href="newsletter.php">News Letter</a></li>
+                      <li><a href="login.php">Student Portal</a></li>
                     </ul>
                   </div>
                 </nav>

@@ -49,7 +49,7 @@ else
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Program Development</title>
+	<title>Server access</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="admin/css/font-awesome.min.css">
@@ -97,7 +97,7 @@ else
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="page-title">Program Development</h3>
+						<h3 class="page-title">Server Access</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div style="background-color:black;" class="panel panel-default">

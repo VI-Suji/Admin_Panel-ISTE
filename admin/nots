@@ -294,3 +294,69 @@ $error="Something went wrong. Please try again";
 <input type="email" name="email" class="form-control" required value="<?php echo htmlentities($result->email);?>">
 <input type="text" name="designation" class="form-control" required value="<?php echo htmlentities($result->designation);?>">
 <input type="text" name="mobile" class="form-control" required value="<?php echo htmlentities($result->mobile);?>">
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <div class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container">
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-center">
+              <div class="col-2">
+                <h2 class="mb-0 site-logo"><a href="index.html"><img src="images/iste.png" alt="ISTE TKMCE" width="80"
+                      height="80"></a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Section to work on new Previous Events Start -->
+    <div class="site-section block-14 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+            <h2>Previous Events</h2>
+          </div>
+        </div>
+        <div class="row">
+          <?php 
+      $sql = "SELECT * FROM `events`";
+      $query = $dbh -> prepare($sql);
+      $query->execute();
+      $results=$query->fetchAll(PDO::FETCH_OBJ);
+      if($query->rowCount() > 0)
+      {
+      foreach($results as $result)
+      {				?>
+          <div class="col-md-4 col-sm-12 mb-3 ">
+            <div class="card">
+              <img src="./admin/images/<?php echo htmlentities($result->image) ?>" class="card-img-top" alt="App Development WS">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                <p class="card-text">
+                  <blockquote>&ldquo;<?php echo htmlentities($result->description) ?><br><br>
+                    &nbsp;
+                    &rdquo;
+                  </blockquote>
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Know More</a> -->
+              </div>
+            </div>
+          </div>
+          <?php }}?>
+        </div>
+      </div>

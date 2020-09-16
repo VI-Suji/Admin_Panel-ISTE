@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 15, 2020 at 03:24 PM
+-- Generation Time: Sep 16, 2020 at 01:32 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -40,6 +40,28 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
 (1, 'admin', 'admin@admin.com', '96e09e6d35444a4b24c0b0da4c0a82d4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article`
+--
+
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL,
+  `heading` varchar(50) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `class` varchar(30) NOT NULL,
+  `year` int(4) NOT NULL,
+  `link` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `article`
+--
+
+INSERT INTO `article` (`id`, `heading`, `name`, `class`, `year`, `link`) VALUES
+(1, 'NEW', 'SUJITH', 'COMPUTER SCIENCE', 2020, 'https://www.google.co.in/maps');
 
 -- --------------------------------------------------------
 
@@ -113,6 +135,28 @@ INSERT INTO `execom` (`id`, `name`, `position`, `category`, `image`) VALUES
 (5, 'AISHA ', 'DESIGN  civil THIRD YEAR', 'Junior Execom', 'aisha.jpg'),
 (6, 'SRUTHY ', 'DOCUMENTATION  EEE THIRD YEAR', 'Junior Execom', 'sruthy.jpg'),
 (7, 'AKSHARA ', 'DOCUMENTATION  civil THIRD YEAR', 'Junior Execom', 'akshara.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
+  `month` varchar(15) NOT NULL DEFAULT 'Unknown',
+  `year` int(5) NOT NULL DEFAULT 0,
+  `link` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `month`, `year`, `link`) VALUES
+(1, 'September', 2020, 'https://maps.google.com/'),
+(2, 'Unknown', 0, 'https://maps.google.com/'),
+(3, 'Unknown', 0, 'https://maps.google.com/');
 
 -- --------------------------------------------------------
 
@@ -201,6 +245,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `deleteduser`
 --
 ALTER TABLE `deleteduser`
@@ -216,6 +266,12 @@ ALTER TABLE `events`
 -- Indexes for table `execom`
 --
 ALTER TABLE `execom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -241,6 +297,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `deleteduser`
 --
 ALTER TABLE `deleteduser`
@@ -257,6 +319,12 @@ ALTER TABLE `events`
 --
 ALTER TABLE `execom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_info`

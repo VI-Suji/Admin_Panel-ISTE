@@ -108,7 +108,7 @@ if(isset($_POST['submit']))
 	<?php include('includes/header.php');?>
 	<div class="ts-main-content">
 	<?php include('includes/leftbar.php');?>
-    <div class="content-wrapper">
+        <div class="content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
@@ -128,8 +128,6 @@ if(isset($_POST['submit']))
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">

@@ -21,7 +21,7 @@
 			<li class="ts-account">
 				<a href="#"><img src="admin/images/29-512.webp" class="ts-avatar hidden-side" alt=""> MENU <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-					<li><a href="../index.php">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 					<li><a href="change-password.php">Change Password</a></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
