@@ -183,7 +183,7 @@ include('../includes/config.php');
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-lock-screen.html">
+                                            <a href="#">
                                                 <i class="feather icon-lock"></i> Lock Screen
                                             </a>
                                         </li>
@@ -212,7 +212,7 @@ include('../includes/config.php');
                                 <div class="right-icon-control">
                                     <div class="input-group input-group-button">
                                         <input type="text" id="search-friends" name="footer-email" class="form-control"
-                                            placeholder="Search Friend">
+                                            placeholder="Search Admin">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary waves-effect waves-light" type="button"><i
                                                     class="feather icon-search"></i></button>
