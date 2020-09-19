@@ -130,7 +130,7 @@ echo "<script type='text/javascript'> document.location = 'index.php'; </script>
 
                     <form method="POST" class="md-float-material form-material">
                         <div class="text-center">
-                            <img src="png/logo.png" alt="logo.png">
+                            <h3>ISTE STUDENTS PORTAL</h3>
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
