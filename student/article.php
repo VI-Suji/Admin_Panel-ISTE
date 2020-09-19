@@ -404,56 +404,47 @@ include('../includes/config.php');
                                                                 <div class="col-md-12">
                                                                     <ul class="list-view">
                                                                         <li>
+                                                                        <?php 
+      $sql = "SELECT * FROM `article`";
+      $query = $dbh -> prepare($sql);
+      $query->execute();
+      $results=$query->fetchAll(PDO::FETCH_OBJ);
+      if($query->rowCount() > 0)
+      {
+      foreach($results as $result)
+      {	?>
                                                                             <div class="card list-view-media">
                                                                                 <div class="card-block">
                                                                                     <div class="media">
                                                                                         <a class="media-left" href="#">
-                                                                                            <img class="media-object card-list-img"
-                                                                                                src="jpg/avatar-2.jpg"
+                                                                                            <img style="height:100px; width:100px;" class="media-object card-list-img"
+                                                                                                src="../images/iste.png"
                                                                                                 alt="Generic placeholder image">
                                                                                         </a>
                                                                                         <div class="media-body">
                                                                                             <div class="col-xs-12">
                                                                                                 <h6
                                                                                                     class="d-inline-block">
-                                                                                                    Heading</h6>
+                                                                                                    <?php echo htmlentities("$result->heading");?></h6>
                                                                                                 <label
-                                                                                                    class="label label-info">Agent</label>
+                                                                                                    class="label label-info"> <?php echo htmlentities("$result->year");?></label>
                                                                                             </div>
-                                                                                            <div
-                                                                                                class="f-13 text-muted m-b-15">
-                                                                                                Software Engineer
-                                                                                            </div>
-                                                                                            <p>Hi, This is my short
-                                                                                                intro text.
-                                                                                                Lorem ipsum is a dummy
-                                                                                                content
-                                                                                                sit
-                                                                                                dollar. You can copy and
-                                                                                                paste
-                                                                                                this
-                                                                                                dummy content from
-                                                                                                anywhere and
-                                                                                                to
-                                                                                                anywhere. Its all free
-                                                                                                and must
-                                                                                                be a
-                                                                                                good to folllow in
-                                                                                                prectice</p>
+                                                                                            
                                                                                             <div class="m-t-15">
                                                                                                 <button type="button"
                                                                                                     data-toggle="tooltip"
                                                                                                     title="View"
                                                                                                     class="btn btn-facebook btn-mini waves-effect waves-light">
-                                                                                                    <span
+                                                                                                    <a href=" <?php echo htmlentities("$result->link");?>"><span
                                                                                                         class="icofont icofont-eye">View
-                                                                                                        now</span>
+                                                                                                        now</span></a>
                                                                                                 </button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+      <?php }} ?>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
