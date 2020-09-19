@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 16, 2020 at 01:32 PM
+-- Generation Time: Sep 19, 2020 at 10:10 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -161,6 +161,76 @@ INSERT INTO `newsletter` (`id`, `month`, `year`, `link`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`id`, `name`, `description`, `date`) VALUES
+(1, 'Welcome to ISTE', 'ISTE welcomes you...', '2020-09-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `branch` varchar(25) NOT NULL,
+  `batch` varchar(2) NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `requirement` varchar(25) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `email`, `phone`, `branch`, `batch`, `year`, `requirement`, `link`) VALUES
+(1, 'Sujith', 'mexaxef510@banetc.com', '7428730894', 'Computer Science', 'R4', '3', 'working', 'http://localhost/Admin_Panel-ISTE/student/submit.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `server`
+--
+
+CREATE TABLE `server` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `branch` varchar(25) NOT NULL,
+  `batch` varchar(2) NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `purpose` varchar(25) NOT NULL,
+  `duration` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `server`
+--
+
+INSERT INTO `server` (`id`, `name`, `email`, `phone`, `branch`, `batch`, `year`, `purpose`, `duration`) VALUES
+(1, 'Sujith', 'mexaxef510@banetc.com', '7428730894', 'Computer Science', 'R4', '3', 'Dynamic', '6');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_info`
 --
 
@@ -234,6 +304,56 @@ INSERT INTO `users` (`id`, `name`, `email`, `branch`, `batch`, `mobile`, `prefa`
 (4, 'Suji', 'sujith@gmail.com', 'CS', 'R4', '9961957849', 'sdfsd', 'sfdsdfg', 'sdfsdf', 'sdfcd', 'dsf', 'sdf', 1),
 (5, 'Suji', 'sujith@gmail.com', 'CS', 'R4', '9961957849', 'sdfsd', 'sfdsdfg', 'sdfsdf', 'sdfcd', 'dsf', 'sdf', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_article`
+--
+
+CREATE TABLE `user_article` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `branch` varchar(25) NOT NULL,
+  `batch` varchar(2) NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_article`
+--
+
+INSERT INTO `user_article` (`id`, `name`, `email`, `phone`, `branch`, `batch`, `year`, `type`, `link`) VALUES
+(1, 'Sujith', 'mexaxef510@banetc.com', '7428730894', 'Computer Science', 'R4', '3', 'opt3', 'http://localhost/Admin_Panel-ISTE/student/submit.php'),
+(2, 'Sujith', 'mexaxef510@banetc.com', '7428730894', 'Computer Science', 'R4', '3', 'EEE', 'http://localhost/Admin_Panel-ISTE/student/submit.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_newsletter`
+--
+
+CREATE TABLE `user_newsletter` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `branch` varchar(50) NOT NULL,
+  `batch` varchar(2) NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `link` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_newsletter`
+--
+
+INSERT INTO `user_newsletter` (`id`, `name`, `email`, `phone`, `branch`, `batch`, `year`, `link`) VALUES
+(1, 'Sujith', 'mexaxef510@banetc.com', '9961957849', 'Computer Science', 'R4', '3', 'http://localhost/Admin_Panel-ISTE/student/submit.php');
+
 --
 -- Indexes for dumped tables
 --
@@ -275,6 +395,24 @@ ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `server`
+--
+ALTER TABLE `server`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_info`
 --
 ALTER TABLE `tbl_info`
@@ -284,6 +422,18 @@ ALTER TABLE `tbl_info`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_article`
+--
+ALTER TABLE `user_article`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_newsletter`
+--
+ALTER TABLE `user_newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -327,6 +477,24 @@ ALTER TABLE `newsletter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `server`
+--
+ALTER TABLE `server`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_info`
 --
 ALTER TABLE `tbl_info`
@@ -337,6 +505,18 @@ ALTER TABLE `tbl_info`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `user_article`
+--
+ALTER TABLE `user_article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user_newsletter`
+--
+ALTER TABLE `user_newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
