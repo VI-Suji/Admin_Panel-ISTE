@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2020 at 10:10 AM
+-- Generation Time: Sep 20, 2020 at 02:34 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -107,7 +107,8 @@ INSERT INTO `events` (`id`, `name`, `description`, `image`, `date`) VALUES
 (4, 'Gaming Royale', 'As part of the techno cultural fest HESTIA 2K19 held from 28th to 31st March 2019, the ISTE students chapter of TKMCE conducted the  Gaming Royale, a platform for entertainmental games that added a taste of enthusiasm to the tech fest.', 'royale.jpg', '2019-03-31'),
 (5, 'Machine Learning', 'Machine Learning, is an application of Artificial Intelligence, focuses on the development of computer programs that can access data and use it learn for themselves. ISTE students chapter TKMCE conducted a 2 day workshop on Machine Learning.', 'machine.jpg', '2020-09-12'),
 (6, 'Latest', 'This is a dummy text to check an event works or not for ISTE', 'fb_img_1569047483757.jpg', '2020-09-30'),
-(8, 'Sujith V I', 'esdrfatgYHDXJASMKXCNKZXV SDFHJSNDF FLmlkkFOLDFlnlh;hawrkkdf', 'img_9015.jpg.jpg', '2020-09-22');
+(8, 'Sujith V I', 'esdrfatgYHDXJASMKXCNKZXV SDFHJSNDF FLmlkkFOLDFlnlh;hawrkkdf', 'img_9015.jpg.jpg', '2020-09-22'),
+(9, 'Sym', 'asjfhjkbkabsf sdglhn adhfjksgkbdfnb ', 'img_9021.jpg.jpg', '2020-09-10');
 
 -- --------------------------------------------------------
 
@@ -176,7 +177,8 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`id`, `name`, `description`, `date`) VALUES
-(1, 'Welcome to ISTE', 'ISTE welcomes you...', '2020-09-19');
+(1, 'Welcome to ISTE', 'ISTE welcomes you...', '2020-09-19'),
+(2, 'Shyam', 'Hello shyam happy to see you', '2020-09-10');
 
 -- --------------------------------------------------------
 
@@ -274,6 +276,26 @@ INSERT INTO `tbl_info` (`id`, `name`, `description`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `branch` varchar(10) NOT NULL,
+  `phone` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `branch`, `phone`) VALUES
+(1, 'sujith', 'CS', '9961957849');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -352,7 +374,8 @@ CREATE TABLE `user_newsletter` (
 --
 
 INSERT INTO `user_newsletter` (`id`, `name`, `email`, `phone`, `branch`, `batch`, `year`, `link`) VALUES
-(1, 'Sujith', 'mexaxef510@banetc.com', '9961957849', 'Computer Science', 'R4', '3', 'http://localhost/Admin_Panel-ISTE/student/submit.php');
+(1, 'Sujith', 'mexaxef510@banetc.com', '9961957849', 'Computer Science', 'R4', '3', 'http://localhost/Admin_Panel-ISTE/student/submit.php'),
+(2, 'Shyam', 'hepotey718@qortu.com', '8075160541', 'Computer Science', 'R4', '2', 'http://localhost/Admin_Panel-ISTE/student/submit.php');
 
 --
 -- Indexes for dumped tables
@@ -419,6 +442,12 @@ ALTER TABLE `tbl_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -462,7 +491,7 @@ ALTER TABLE `deleteduser`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `execom`
@@ -480,7 +509,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -501,6 +530,12 @@ ALTER TABLE `tbl_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -516,7 +551,7 @@ ALTER TABLE `user_article`
 -- AUTO_INCREMENT for table `user_newsletter`
 --
 ALTER TABLE `user_newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
