@@ -1,6 +1,12 @@
 <?php
 session_start();
+error_reporting(0);
 include('../includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:login.php');
+}
+else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,8 +151,10 @@ include('../includes/config.php');
                                 </div>
                             </li>
                             <?php 
-      $sql = "SELECT * FROM `admin`";
+      $name=$_SESSION['alogin'];
+      $sql = "SELECT * FROM `user` WHERE name=:name";
       $query = $dbh -> prepare($sql);
+      $query-> bindParam(':name', $name, PDO::PARAM_STR);
       $query->execute();
       $results=$query->fetchAll(PDO::FETCH_OBJ);
       if($query->rowCount() > 0)
@@ -497,3 +505,4 @@ include('../includes/config.php');
 <!-- Mirrored from colorlib.com/polygon/admindek/default/list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:53 GMT -->
 
 </html>
+      <?php } ?>

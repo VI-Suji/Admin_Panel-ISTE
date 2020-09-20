@@ -1,6 +1,12 @@
 <?php
 session_start();
+error_reporting(0);
 include('../includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:login.php');
+}
+else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,8 +151,10 @@ include('../includes/config.php');
                                 </div>
                             </li>
                             <?php 
-      $sql = "SELECT * FROM `admin`";
+                            $name=$_SESSION['alogin'];
+      $sql = "SELECT * FROM `user` WHERE name=:name";
       $query = $dbh -> prepare($sql);
+      $query-> bindParam(':name', $name, PDO::PARAM_STR);
       $query->execute();
       $results=$query->fetchAll(PDO::FETCH_OBJ);
       if($query->rowCount() > 0)
@@ -157,7 +165,7 @@ include('../includes/config.php');
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
                                         <img src="jpg/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span><?php echo htmlentities("$result->username");?></span>
+                                        <span><?php echo htmlentities("$result->name");?></span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"
@@ -456,3 +464,4 @@ include('../includes/config.php');
 <!-- Mirrored from colorlib.com/polygon/admindek/default/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:25 GMT -->
 
 </html>
+      <?php }?>

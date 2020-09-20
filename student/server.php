@@ -1,6 +1,12 @@
 <?php
 session_start();
+error_reporting(0);
 include('../includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:login.php');
+}
+else{
 if(isset($_POST['login']))
 {
 	// echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
@@ -185,8 +191,10 @@ else
                                 </div>
                             </li>
                             <?php 
-      $sql = "SELECT * FROM `admin`";
+      $name=$_SESSION['alogin'];
+      $sql = "SELECT * FROM `user` WHERE name=:name";
       $query = $dbh -> prepare($sql);
+      $query-> bindParam(':name', $name, PDO::PARAM_STR);
       $query->execute();
       $results=$query->fetchAll(PDO::FETCH_OBJ);
       if($query->rowCount() > 0)
@@ -629,3 +637,4 @@ else
 <!-- Mirrored from colorlib.com/polygon/admindek/default/form-elements-add-on.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:09:13 GMT -->
 
 </html>
+      <?php } ?>
