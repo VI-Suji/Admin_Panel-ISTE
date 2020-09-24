@@ -1,6 +1,34 @@
 <?php
 session_start();
 error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:index.php');
+}
+else{
+
+if(isset($_POST['search']))
+{
+	// echo "<script>alert('Hello');</script>";
+	$user=$_POST['username'];
+	$sql ="SELECT * FROM `certificate` WHERE id=:user";
+	$query= $dbh -> prepare($sql);
+	$query-> bindParam(':user', $user, PDO::PARAM_STR);
+    $query->execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
+    if($query->rowCount() > 0)
+    {
+      foreach($results as $result)
+      {	
+		  $eve=".$result->name_event.";
+		  $msg=".$result->name.";
+		  $gra=".$result->grade.";
+	  }
+	}else{
+		$error="Sorry No user exists";
+	}
+}
 ?>
 
 <!doctype html>
@@ -74,14 +102,14 @@ error_reporting(0);
 								<div class="panel panel-default">
 									<div class="panel-heading">Search</div>
 <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+				else if($msg){?><div class="succWrap"><strong>USERNAME</strong>:<?php echo htmlentities($msg); ?>&nbsp;<strong>EVENT</strong>:<?php echo htmlentities($eve); ?>&nbsp;<strong>GRADE</strong>:<?php echo htmlentities($gra); ?> </div><?php }?>
 
 									<div class="panel-body">
-<form action="result.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+<form method="post" class="form-horizontal" enctype="multipart/form-data">
 <div class="form-group">
 <label class="col-sm-2 control-label">Search ID<span style="color:red">*</span></label>
 <div class="col-sm-4">
-<input type="text" name="name" class="form-control" placeholder="User ID">
+<input type="text" name="username" class="form-control" placeholder="User ID">
 </div>
 <!-- <label class="col-sm-2 control-label">name<span style="color:red">*</span></label>
 <div class="col-sm-4">
@@ -92,7 +120,7 @@ error_reporting(0);
 
 <div class="form-group">
 	<div class="col-sm-8 col-sm-offset-2">
-		<button class="btn btn-primary" name="submit" type="submit">Search</button>
+		<button class="btn btn-primary" name="search" type="submit">Search</button>
 	</div>
 </div>
 
@@ -108,3 +136,4 @@ error_reporting(0);
 	</div>
 </body>
 </html>
+<?php }?> 

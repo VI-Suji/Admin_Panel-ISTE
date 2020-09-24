@@ -39,23 +39,44 @@ if (isset($_POST["submit"])) {
         $spreadSheetAry = $excelSheet->toArray();
         $sheetCount = count($spreadSheetAry);
 
+		// echo "<script>alert(".$sheetCount.");</script>";
         for ($i = 0; $i <= $sheetCount; $i ++) {
             // echo "<script>alert('welcome');</script>";
-            $name = "";
+            $id = "";
             if (isset($spreadSheetAry[$i][0])) {
-                $name = mysqli_real_escape_string($conn, $spreadSheetAry[$i][0]);
+                $id = mysqli_real_escape_string($conn, $spreadSheetAry[$i][0]);
             }
-            $description = "";
+            $name_event = "";
             if (isset($spreadSheetAry[$i][1])) {
-                $description = mysqli_real_escape_string($conn, $spreadSheetAry[$i][1]);
+                $name_event = mysqli_real_escape_string($conn, $spreadSheetAry[$i][1]);
+			}
+			$name = "";
+            if (isset($spreadSheetAry[$i][0])) {
+                $name = mysqli_real_escape_string($conn, $spreadSheetAry[$i][2]);
+			}
+			$college = "";
+            if (isset($spreadSheetAry[$i][0])) {
+                $college = mysqli_real_escape_string($conn, $spreadSheetAry[$i][3]);
+			}
+			$category = "";
+            if (isset($spreadSheetAry[$i][0])) {
+                $category = mysqli_real_escape_string($conn, $spreadSheetAry[$i][4]);
+			}
+			$grade = "";
+            if (isset($spreadSheetAry[$i][0])) {
+                $grade = mysqli_real_escape_string($conn, $spreadSheetAry[$i][5]);
             }
 
-            if (! empty($name) || ! empty($description)) {
-                $query = "insert into tbl_info(name,description) values(?,?)";
-                $paramType = "ss";
+            if (! empty($name) || ! empty($name_event) || ! empty($name) || ! empty($college) || ! empty($category) || ! empty($grade)) {
+                $query = "insert into certificate(id,name_event,name,college,category,grade) values(?,?,?,?,?,?)";
+                $paramType = "ssssss";
                 $paramArray = array(
-                    $name,
-                    $description
+                    $id,
+					$name_event,
+					$name,
+					$college,
+					$category,
+					$grade
                 );
                 $insertId = $db->insert($query, $paramType, $paramArray);
                 // $query = "insert into tbl_info(name,description) values('" . $name . "','" . $description . "')";
@@ -65,7 +86,7 @@ if (isset($_POST["submit"])) {
                     $t=1;
                 } else {
                     $t=0;
-                    echo "<script>alert('Error,Problem in Importing Excel Data');</script>";
+                    // echo "<script>alert('Error,Problem in Importing Excel Data');</script>";
                 }
             }
         }
