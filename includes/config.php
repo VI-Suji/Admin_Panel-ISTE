@@ -1,9 +1,8 @@
 ﻿<?php 
-// DB credentials.
 // define('DB_HOST','istetkmce.in');
-// define('DB_USER','ezitmxze_recruit');
-// define('DB_PASS','Istetkmce@2020');
-// define('DB_NAME',' ezitmxze_recruitment');
+// define('DB_USER','ezitmxze_admin');
+// define('DB_PASS','Istetkmce@2019');
+// define('DB_NAME','ezitmxze_iste');
 
 define('DB_HOST','localhost');
 define('DB_USER','root');

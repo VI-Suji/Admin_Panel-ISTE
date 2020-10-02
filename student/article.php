@@ -176,8 +176,8 @@ else{
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="feather icon-settings"></i> Settings
+                                            <a href="change-password.php">
+                                                <i class="feather icon-settings"></i> Change Password
                                             </a>
                                         </li>
                                         <li>
