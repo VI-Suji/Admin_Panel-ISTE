@@ -94,7 +94,7 @@ include('./admin/includes/config.php');
                       <li><a href="event.php">Events</a></li>
                       <li><a href="about.php">About</a></li>
                       <li><a href="contact.php">Contact</a></li>
-                      <li><a href="Article.php">News Letter</a></li>
+                      <li><a href="newsletter.php">News Letter</a></li>
                       <li><a href="./student/login.php">Student Portal</a></li>
                     </ul>
                   </div>
@@ -136,48 +136,79 @@ include('./admin/includes/config.php');
 
 </div>
     <br><br>
-        <div class="row">
-          <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2>Articles</h2>
-          </div>
-        </div>
-    <!-- Carousel Start -->
-    <div id="cards_landscape_wrap-2">
-      <div class="container">
-        <div class="row">
-        <?php 
-      $sql = "SELECT * FROM `article`";
-      $query = $dbh -> prepare($sql);
-      $query->execute();
-      $results=$query->fetchAll(PDO::FETCH_OBJ);
-      if($query->rowCount() > 0)
-      {
-      foreach($results as $result)
-      {	?>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-              <div class="card-flyer">
-                <div class="text-box">
-                  <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-12 text-container">
-                    <!-- <img class="col-xs-12 col-sm-6 col-md-4 col-lg-12" src="images/Article.png"/> -->
-                    <li><i class=""></i><?php echo htmlentities($result->heading) ?></li>
-                    <li><i class=""></i><?php echo htmlentities($result->name) ?></li>
-                    <li><i class=""></i><?php echo htmlentities($result->class) ?></li>
-                    <li><i class=""></i><?php echo htmlentities($result->year) ?></li>
-                    <div style="text-align:center;" class="">
-                    <div class="form-group">
-	                    <div class="col-sm-8 col-sm-offset-2">
-                            <li>&nbsp;&nbsp;<a href="<?php echo htmlentities($result->link) ?>"><i class="fa fa-eye"></i> &nbsp;&nbsp;View Article</a></li>
-	                    </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
+    <div class="site-section block-14 bg-light">
+
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+      <h2>Atricles</h2>
+    </div>
+  </div>
+
+      <div class="top-content">
+          <div class="container-fluid">
+          <div id="previous" class="carousel slide w-100" data-ride="carousel">
+              <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                        <?php 
+$sql = "SELECT * from  article ";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$cnt=0;
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{				if($result->name && $cnt==0){
+?>
+<div class="carousel-item col-md-4 active">      
+            <div class="card">
+              <img src="images/iste.png"
+                class="card-img-top" alt="">
+              <div class="card-body">
+              <h5 class="card-title"><?php echo htmlentities($result->heading) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->class) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->year) ?></h5>
+                <p class="card-text">
+                <li><a href="<?php echo htmlentities($result->link) ?>"><i class="fa fa-eye"></i> &nbsp;View Article</a></li>
+                </p>
               </div>
+            </div>
           </div>
-          <?php }}?>
+          <?php $cnt=1; ?>
+<?php }else{?>
+<div class="carousel-item col-md-4">      
+            <div class="card">
+              <img src="images/iste.png"
+                class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo htmlentities($result->heading) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->name) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->class) ?></h5>
+                <h5 class="card-title"><?php echo htmlentities($result->year) ?></h5>
+                <p class="card-text">
+                <li><a href="<?php echo htmlentities($result->link) ?>"><i class="fa fa-eye"></i> &nbsp;View Article</a></li>
+                </p>
+              </div>
+            </div>
           </div>
+          <?php }}} ?>
+              </div>
+              <a class="carousel-control-prev w-auto" href="#previous" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next w-auto" href="#previous" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
           </div>
-          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+</div>
   <footer class="site-footer">
     <div class="container">
       <div class="row">
