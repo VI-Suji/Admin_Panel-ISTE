@@ -33,7 +33,7 @@ else{
         content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="colorlib" />
 
-    <link rel="icon" href="../images/iste.png" type="image/x-icon">
+    <link rel="icon" href="../../images/iste.png" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
@@ -49,6 +49,7 @@ else{
     <link rel="stylesheet" href="css/chartist.css" type="text/css" media="all">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/test.css">
     <link rel="stylesheet" type="text/css" href="css/widget.css">
 </head>
 
@@ -62,311 +63,9 @@ else{
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            <nav class="navbar header-navbar pcoded-header">
-                <div class="navbar-wrapper">
-                    <div class="navbar-logo">
-                        <a href="index.php">
-                            <h3> ISTE TKMCE </h3>
-                        </a>
-                        <a class="mobile-menu" id="mobile-collapse" href="#!">
-                            <i class="feather icon-menu icon-toggle-right"></i>
-                        </a>
-                        <a class="mobile-options waves-effect waves-light">
-                            <i class="feather icon-more-horizontal"></i>
-                        </a>
-                    </div>
-                    <div class="navbar-container container-fluid">
-                        <ul class="nav-left">
-                            <li class="header-search">
-                                <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="input-group-prepend search-close">
-                                            <i class="feather icon-x input-group-text"></i>
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="Enter Keyword">
-                                        <span class="input-group-append search-btn">
-                                            <i class="feather icon-search input-group-text"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#!"
-                                    onclick="if (!window.__cfRLUnblockHandlers) return false; javascript:toggleFullScreen()"
-                                    class="waves-effect waves-light" data-cf-modified-d2d1d6e2f87cbebdf4013b26-="">
-                                    <i class="full-screen feather icon-maximize"></i>
-                                </a>
-                            </li>
-                        </ul>
+        <?php include('top.php');?>
 
-                        <ul class="nav-right">
-                            <li class="header-notification">
-                            <?php 
-      $sql = "SELECT * FROM `notification`";
-      $query = $dbh -> prepare($sql);
-      $cnt=0;
-      $query->execute();
-      $results=$query->fetchAll(PDO::FETCH_OBJ);
-      if($query->rowCount() > 0)
-      {
-      foreach($results as $result)
-      {	$cnt++;}}?>
-                                <div class="dropdown-primary dropdown">
-                                    <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="feather icon-bell"></i>
-                                        <span class="badge bg-c-red"><?php echo htmlentities("$cnt");?> </span>
-                                    </div>
-                                    <ul class="show-notification notification-view dropdown-menu"
-                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        <li>
-                                            <h6>Notifications</h6>
-                                            <label class="label label-danger">New</label>
-                                        </li>
-                                        <?php
-      if($query->rowCount() > 0)
-      {
-      foreach($results as $result)
-      {	?>
-                                        <li>
-                                            <div class="media">
-                                                <img class="img-radius" src="jpg/avatar-4.jpg"
-                                                    alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user"><?php echo htmlentities("$result->name");?> </h5>
-                                                    <p class="notification-msg"><?php echo htmlentities("$result->description");?></p>
-                                                    <span class="notification-time"><?php echo htmlentities("$result->date");?></span>
-                                                </div>
-                                            </div>
-                                        </li>
-      <?php }} ?>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="header-notification">
-                                <div class="dropdown-primary dropdown">
-                                    <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
-                                        <i class="feather icon-message-square"></i>
-                                        <span class="badge bg-c-green"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php 
-                            $name=$_SESSION['alogin'];
-      $sql = "SELECT * FROM `user` WHERE name=:name";
-      $query = $dbh -> prepare($sql);
-      $query-> bindParam(':name', $name, PDO::PARAM_STR);
-      $query->execute();
-      $results=$query->fetchAll(PDO::FETCH_OBJ);
-      if($query->rowCount() > 0)
-      {
-      foreach($results as $result)
-      {	?>
-                            <li class="user-profile header-notification">
-                                <div class="dropdown-primary dropdown">
-                                    <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="jpg/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span><?php echo htmlentities("$result->name");?></span>
-                                        <i class="feather icon-chevron-down"></i>
-                                    </div>
-                                    <ul class="show-notification profile-notification dropdown-menu"
-                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        <li>
-                                            <a href="../index.php">
-                                                <i class="feather icon-home"></i> Home
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="change-password.php">
-                                                <i class="feather icon-settings"></i> Change Password
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="feather icon-user"></i> Profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="feather icon-mail"></i> My Messages
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="feather icon-lock"></i> Lock Screen
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="login.php">
-                                                <i class="feather icon-log-out"></i> Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <?php }} ?>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
 
-            <div id="sidebar" class="users p-chat-user showChat">
-                <div class="had-container">
-                    <div class="p-fixed users-main">
-                        <div class="user-box">
-                            <div class="chat-search-box">
-                                <a class="back_friendlist">
-                                    <i class="feather icon-x"></i>
-                                </a>
-                                <div class="right-icon-control">
-                                    <div class="input-group input-group-button">
-                                        <input type="text" id="search-friends" name="footer-email" class="form-control"
-                                            placeholder="Search Admin">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary waves-effect waves-light" type="button"><i
-                                                    class="feather icon-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="main-friend-list">
-                                <div class="media userlist-box waves-effect waves-light" data-id="1"
-                                    data-status="online" data-username="Josephin Doe">
-                                    <a class="media-left" href="#!">
-                                        <img class="media-object img-radius img-radius" src="jpg/avatar-3.jpg"
-                                            alt="Generic placeholder image ">
-                                        <div class="live-status bg-success"></div>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="chat-header">Josephin Doe</div>
-                                    </div>
-                                </div>
-                                <div class="media userlist-box waves-effect waves-light" data-id="2"
-                                    data-status="online" data-username="Lary Doe">
-                                    <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="jpg/avatar-2.jpg"
-                                            alt="Generic placeholder image">
-                                        <div class="live-status bg-success"></div>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="f-13 chat-header">Lary Doe</div>
-                                    </div>
-                                </div>
-                                <div class="media userlist-box waves-effect waves-light" data-id="3"
-                                    data-status="online" data-username="Alice">
-                                    <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="jpg/avatar-4.jpg"
-                                            alt="Generic placeholder image">
-                                        <div class="live-status bg-success"></div>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="f-13 chat-header">Alice</div>
-                                    </div>
-                                </div>
-                                <div class="media userlist-box waves-effect waves-light" data-id="4"
-                                    data-status="offline" data-username="Alia">
-                                    <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="jpg/avatar-3.jpg"
-                                            alt="Generic placeholder image">
-                                        <div class="live-status bg-default"></div>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="f-13 chat-header">Alia<small class="d-block text-muted">10 min
-                                                ago</small></div>
-                                    </div>
-                                </div>
-                                <div class="media userlist-box waves-effect waves-light" data-id="5"
-                                    data-status="offline" data-username="Suzen">
-                                    <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="jpg/avatar-2.jpg"
-                                            alt="Generic placeholder image">
-                                        <div class="live-status bg-default"></div>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="f-13 chat-header">Suzen<small class="d-block text-muted">15 min
-                                                ago</small></div>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-
-                    <nav class="pcoded-navbar">
-                        <div class="nav-list">
-                            <div class="pcoded-inner-navbar main-menu">
-                                <div class="pcoded-navigation-label">Navigation</div>
-                                <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu pcoded-trigger">
-                                        <a href="index.php" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                            <span class="pcoded-mtext">Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                            <span class="pcoded-mtext">Newsletter</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
-                                        </a>
-
-                                        <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                            <li class="">
-                                                <a href="view.php" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">View Sample</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="submit.php" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Submit</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                            <span class="pcoded-mtext">Article</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
-                                        </a>
-
-                                        <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                            <li class="">
-                                                <a href="article.php" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">View Sample</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="article_sub.php" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Submit</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="project.php" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-edit"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Project Development</span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="server.php" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-layers"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Server access</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
 
                     <div class="pcoded-content">
 
@@ -393,75 +92,275 @@ else{
                                 </div>
                             </div>
                         </div>
-                        <div class="pcoded-inner-content">
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <div class="page-body">
+                    </div>
+                    <br><br>
+                    <?php 
+                            $name=$_SESSION['alogin'];
+      $sql = "SELECT * FROM `user` WHERE name=:name";
+      $query = $dbh -> prepare($sql);
+      $query-> bindParam(':name', $name, PDO::PARAM_STR);
+      $query->execute();
+      $results=$query->fetchAll(PDO::FETCH_OBJ);
+      if($query->rowCount() > 0)
+      {
+      foreach($results as $result)
+      {	?>
+                    <div class="container d-flex justify-content-center">
+        <div class="tcard p-3 py-4">
+            <div class="text-center"> <img src="../images/iste.png" width="100" class="rounded-circle">
+                <h3 class="mt-4"><?php echo htmlentities("$result->name");?></h3> <span class="mt-1 clearfix"></span> <h5
+                    class="mt-10"><?php echo htmlentities("$result->branch");?></h5>
+                    <h5 class="mt-10"><?php echo htmlentities("$result->batch");?></h5>
+                <div class="social-buttons mt-5"> 
+                    <button style="color:black;" class="tneo-button">I</button> 
+                    <button style="color:black;" class="tneo-button">S</button> 
+                    <button style="color:black;" class="tneo-button">T</button>
+                    <button style="color:black;" class="tneo-button">E</button></div>
+            </div>
+        </div>
+    </div>
+      <?php }} ?>
 
-                                        <div class="row">
+      <div class="pcoded-content">
 
-                                            <div class="col-md-12">
-                                                <div class="card sale-card">
-                                                    <div class="card-header">
-                                                        <h4>WELCOME TO ISTE STUDENT PORTAL</h4>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div style="text-align: center; background-color:white"
-                                                            class="panel-body">
-                                                            <img style="height:250px; width:250px;"
-                                                                src="../images/iste.png" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <div class="page-header card">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="feather icon-plus bg-c-blue"></i>
+                                        <div class="d-inline">
+                                            <h5>GUIDELINES</h5>
+                                            <span>About the contents</span>
                                         </div>
                                     </div>
                                 </div>
+      </div>
+      </div>
+      </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="content" class="content content-full-width">
+
+                    <!-- begin profile-content -->
+                    <div class="profile-content">
+                        <!-- begin tab-content -->
+                        <div class="tab-content p-0">
+                            <!-- begin #profile-post tab -->
+                            <div class="tab-pane fade active show" id="profile-post">
+                                <!-- begin timeline -->
+                                <ul class="timeline">
+                                    <li>
+                                        <!-- begin timeline-time -->
+                                        <!-- <div class="timeline-time">
+                                            <span class="date">today</span>
+                                            <span class="time">04:20</span>
+                                        </div> -->
+                                        <!-- end timeline-time -->
+                                        <!-- begin timeline-icon -->
+                                        <div class="timeline-icon">
+                                            <a href="javascript:;">&nbsp;</a>
+                                        </div>
+                                        <!-- end timeline-icon -->
+                                        <!-- begin timeline-body -->
+                                        <div class="timeline-body">
+                                            <div class="timeline-header">
+                                                <span class="userimage"><img src="https://img.icons8.com/plasticine/200/000000/add-open-envelope.png"/></span>
+                                                <span class="username"><a href="javascript:;">NEWSLETTER </a>
+                                                    <small></small></span>
+
+                                            </div>
+                                            <div class="timeline-content">
+                                                <p>
+                                                    Subscribe to our newsletter containing a list of our most
+                                                    interesting content, announcements, and promotions.
+                                                </p>
+                                                <p>
+                                                    You can access
+                                                    exclusive links for short checklists to original articles and posts
+                                                    where you can study the subject in detail!
+                                                </p>
+                                            </div>
+                                            <!-- end timeline-body -->
+
+
+                                    </li>
+
+                                    <li>
+                                        <!-- begin timeline-time -->
+                                        <!-- <div class="timeline-time">
+                                            <span class="date">today</span>
+                                            <span class="time">04:20</span>
+                                        </div> -->
+                                        <!-- end timeline-time -->
+                                        <!-- begin timeline-icon -->
+                                        <div class="timeline-icon">
+                                            <a href="javascript:;">&nbsp;</a>
+                                        </div>
+                                        <!-- end timeline-icon -->
+                                        <!-- begin timeline-body -->
+                                        <div class="timeline-body">
+                                            <div class="timeline-header">
+                                                <span class="userimage"><img src="https://img.icons8.com/nolan/256/file.png"/></span>
+                                                <span class="username"><a href="javascript:;">ARTICLE </a>
+                                                    <small></small></span>
+
+                                            </div>
+                                            <div class="timeline-content">
+                                                <p>
+                                                    ISTE solicits paper and articles of original, principled research
+                                                    papers dealing with theoretical, methodological, empirical and
+                                                    application-related aspects of technical education
+                                                </p>
+                                                <p>
+                                                    All papers must be submitted electronically to ISTE along with an
+                                                    undertaking for the originality, IPR and copyright issues.
+                                                </p>
+                                                <p>
+                                                    The full details of the author and their home institution (if any)
+                                                    should be given for correspondence. For any further clarifications
+                                                    regarding the submission of the papers kindly contact us at....
+                                                </p>
+                                            </div>
+                                            <!-- end timeline-body -->
+
+
+                                    </li>
+
+                                    <li>
+                                        <!-- begin timeline-time -->
+                                        <!-- <div class="timeline-time">
+                                            <span class="date">today</span>
+                                            <span class="time">04:20</span>
+                                        </div> -->
+                                        <!-- end timeline-time -->
+                                        <!-- begin timeline-icon -->
+                                        <div class="timeline-icon">
+                                            <a href="javascript:;">&nbsp;</a>
+                                        </div>
+                                        <!-- end timeline-icon -->
+                                        <!-- begin timeline-body -->
+                                        <div class="timeline-body">
+                                            <div class="timeline-header">
+                                                <span class="userimage"><img src="https://img.icons8.com/ios/250/000000/light-on.png"/></span>
+                                                <span class="username"><a href="javascript:;">PROJECT DEVELOPMENT </a>
+                                                    <small></small></span>
+
+                                            </div>
+                                            <div class="timeline-content">
+                                                <p>
+                                                    Students of who are doing project work
+                                                    involving product development, fabrication, design, model studies,
+                                                    innovative
+                                                    developments, etc. may submit one copy of their Project through this
+                                                    portal.
+                                                </p>
+                                                <p>
+                                                    The Project should be the authentic work of a single student or a
+                                                    group of students working together on the same project.
+                                                </p>
+                                            </div>
+                                            <!-- end timeline-body -->
+
+
+                                    </li>
+
+                                    <li>
+                                        <!-- begin timeline-time -->
+                                        <!-- <div class="timeline-time">
+                                            <span class="date">today</span>
+                                            <span class="time">04:20</span>
+                                        </div> -->
+                                        <!-- end timeline-time -->
+                                        <!-- begin timeline-icon -->
+                                        <div class="timeline-icon">
+                                            <a href="javascript:;">&nbsp;</a>
+                                        </div>
+                                        <!-- end timeline-icon -->
+                                        <!-- begin timeline-body -->
+                                        <div class="timeline-body">
+                                            <div class="timeline-header">
+                                                <span class="userimage"><img src="https://img.icons8.com/ios-filled/250/000000/ftp-server.png"/></span>
+                                                <span class="username"><a href="javascript:;">SERVER ACCESS </a>
+                                                    <small></small></span>
+
+                                            </div>
+                                            <div class="timeline-content">
+                                                <p>
+                                                    Server access allows users to access and manage the actual system
+                                                    interfaces and files.
+                                                </p>
+                                                <p>
+                                                    Users can also connect to the network to troubleshoot issues,
+                                                    install/uninstall/configure a software, among many more others.
+                                                    Apply here with the required information to obtain server access.
+                                                </p>
+                                            </div>
+                                            <!-- end timeline-body -->
+
+
+                                    </li>
+
+                                </ul>
+                                <!-- end timeline -->
                             </div>
+                            <!-- end #profile-post tab -->
                         </div>
+                        <!-- end tab-content -->
                     </div>
+                    <!-- end profile-content -->
                 </div>
+            </div>
+        </div>
+    </div>
 
 
-                <script data-cfasync="false" src="js/email-decode.min.js"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery.min.js"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery-ui.min.js"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/popper.min.js"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/bootstrap.min.js"></script>
+                        <script data-cfasync="false" src="js/email-decode.min.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery.min.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery-ui.min.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/popper.min.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/bootstrap.min.js"></script>
 
-                <script src="js/waves.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/waves.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery.slimscroll.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/jquery.slimscroll.js"></script>
 
-                <script src="js/jquery.flot.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/jquery.flot.categories.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/curvedlines.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/jquery.flot.tooltip.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/jquery.flot.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/jquery.flot.categories.js"
+                            type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/curvedlines.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/jquery.flot.tooltip.min.js"
+                            type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
-                <script src="js/chartist.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/chartist.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
-                <script src="js/amcharts.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/serial.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/light.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/amcharts.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/serial.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/light.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
-                <script src="js/pcoded.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script src="js/vertical-layout.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/custom-dashboard.min.js"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/script.min.js"></script>
+                        <script src="js/pcoded.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script src="js/vertical-layout.min.js"
+                            type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript"
+                            src="js/custom-dashboard.min.js"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="js/script.min.js"></script>
 
-                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-                    type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-                <script type="d2d1d6e2f87cbebdf4013b26-text/javascript">
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+                            type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+                        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
 </script>
-                <script src="js/rocket-loader.min.js" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
+                        <script src="js/rocket-loader.min.js" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49"
+                            defer=""></script>
 </body>
 
 <!-- Mirrored from colorlib.com/polygon/admindek/default/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:25 GMT -->
 
 </html>
-      <?php }?>
+<?php }?>
