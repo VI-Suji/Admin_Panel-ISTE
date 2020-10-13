@@ -163,7 +163,7 @@ body {
   height: 40px;
   outline: 0 !important;
   cursor: pointer;
-  color: blue;
+  color: #fff;
   font-size: 15px;
   border: none;
   margin-right: 10px;
@@ -172,13 +172,13 @@ body {
   box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
 }
 
-.tneo-button:hover {
+.tneo-button:hover{
   color: red;
 }
 
 .tneo-button:active {
   border-radius: 50%;
-  background: linear-gradient(145deg, #09449c, #ffffff);
+  background: linear-gradient(145deg, #d6d6d6, #ffffff);
   box-shadow: inset 20px 20px 60px #cacaca, inset -20px -20px 60px #ffffff;
 }
 

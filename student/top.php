@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
@@ -119,7 +120,7 @@
                                                 <i class="feather icon-settings"></i> Change Password
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">
                                                 <i class="feather icon-user"></i> Profile
                                             </a>
@@ -133,7 +134,7 @@
                                             <a href="#">
                                                 <i class="feather icon-lock"></i> Lock Screen
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="login.php">
                                                 <i class="feather icon-log-out"></i> Logout
@@ -249,7 +250,7 @@
                                     <li class="pcoded-hasmenu">
                                         <a href="view.php" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
-                                                <i class="feather icon-sidebar"></i>
+                                            <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
                                             </span>
                                             <span class="pcoded-mtext">NewsLetter</span>
                                         </a>
@@ -300,7 +301,7 @@
                                     <li class="pcoded-hasmenu">
                                         <a href="project.php" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
-                                                <i class="feather icon-edit"></i>
+                                            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
                                             </span>
                                             <span class="pcoded-mtext">Project Development</span>
                                         </a>

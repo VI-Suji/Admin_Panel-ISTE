@@ -71,7 +71,7 @@ else{
                                             <div class="page-header-title">
                                                 <i class="feather icon-box bg-c-blue"></i>
                                                 <div class="d-inline">
-                                                    <h5>Previous</h5>
+                                                    <h5>Articles</h5>
                                                     <span></span>
                                                 </div>
                                             </div>
@@ -102,55 +102,11 @@ else{
 
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                <h5>Old Articles</h5>
+                                                                <h5>Coming soon...</h5>
                                                             </div>
                                                             <div class="row card-block">
                                                                 <div class="col-md-12">
-                                                                    <ul class="list-view">
-                                                                        <li>
-                                                                        <?php 
-      $sql = "SELECT * FROM `article`";
-      $query = $dbh -> prepare($sql);
-      $query->execute();
-      $results=$query->fetchAll(PDO::FETCH_OBJ);
-      if($query->rowCount() > 0)
-      {
-      foreach($results as $result)
-      {	?>
-                                                                            <div class="card list-view-media">
-                                                                                <div class="card-block">
-                                                                                    <div class="media">
-                                                                                        <a class="media-left" href="#">
-                                                                                            <img style="height:100px; width:100px;" class="media-object card-list-img"
-                                                                                                src="../images/iste.png"
-                                                                                                alt="Generic placeholder image">
-                                                                                        </a>
-                                                                                        <div class="media-body">
-                                                                                            <div class="col-xs-12">
-                                                                                                <h6
-                                                                                                    class="d-inline-block">
-                                                                                                    <?php echo htmlentities("$result->heading");?></h6>
-                                                                                                <label
-                                                                                                    class="label label-info"> <?php echo htmlentities("$result->year");?></label>
-                                                                                            </div>
-                                                                                            
-                                                                                            <div class="m-t-15">
-                                                                                                <button type="button"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    title="View"
-                                                                                                    class="btn btn-facebook btn-mini waves-effect waves-light">
-                                                                                                    <a href=" <?php echo htmlentities("$result->link");?>"><span
-                                                                                                        class="icofont icofont-eye">View
-                                                                                                        now</span></a>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-      <?php }} ?>
-                                                                        </li>
-                                                                    </ul>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
