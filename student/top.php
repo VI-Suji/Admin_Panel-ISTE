@@ -313,7 +313,7 @@
                 
             </div>
         </nav>
-        <div class="footer">
+        <div class="footer pcoded-wrapper">
                     <li  class="pcoded-hasmenu fixed-bottom text-center" style="background-color: white;list-style-type:none;line-height:30px;">
                         <span class="text-black  pcoded-mtext">Copyright &copy; 2020 All Rights Reserved | Devoloped by 404 ISTE</span>
                     </li>

@@ -5,7 +5,7 @@ if(isset($_POST['login']))
 {
 $email=$_POST['username'];
 $password=$_POST['password'];
-$sql ="SELECT name,phone FROM `user` WHERE name=:email and phone=:password";
+$sql ="SELECT name,phone FROM `user` WHERE email=:email and phone=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
