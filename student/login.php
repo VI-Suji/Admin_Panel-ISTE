@@ -158,23 +158,7 @@ echo "<script type='text/javascript'> document.location = 'index.php'; </script>
                                 <div class="form-group form-primary">
                                     <input type="password" name="password" class="form-control" required="">
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Password</label>
-                                </div>
-                                <div class="row m-t-25 text-left">
-                                    <div class="col-12">
-                                        <div class="checkbox-fade fade-in-primary">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                <span class="cr"><i
-                                                        class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                <span class="text-inverse">Remember me</span>
-                                            </label>
-                                        </div>
-                                        <div class="forgot-phone text-right float-right">
-                                            <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot
-                                                Password?</a>
-                                        </div>
-                                    </div>
+                                    <label class="float-label">Phone Number</label>
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
