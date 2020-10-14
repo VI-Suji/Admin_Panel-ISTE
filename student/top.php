@@ -304,15 +304,17 @@
                                 </span>
                                 <span class="pcoded-mtext">Server access</span>
                             </a>
+                            
                         </li>
 
                     </ul>
-
+                    
                 </div>
-                <div class="footer">
-                    <li class="pcoded-hasmenu text-right p-5">
-                        <span class="text-black  pcoded-mtext fixed-bottom">Copyright &copy; 2020 All Rights Reserved | Devoloped by 404 ISTE</span>
-                    </li>
-                </div>
+                
             </div>
         </nav>
+        <div class="footer">
+                    <li  class="pcoded-hasmenu fixed-bottom text-center" style="background-color: white;list-style-type:none;line-height:30px;">
+                        <span class="text-black  pcoded-mtext">Copyright &copy; 2020 All Rights Reserved | Devoloped by 404 ISTE</span>
+                    </li>
+                </div>
