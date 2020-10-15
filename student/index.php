@@ -97,7 +97,7 @@ else{
                     <br><br>
                     <?php 
                             $name=$_SESSION['alogin'];
-      $sql = "SELECT * FROM `user` WHERE name=:name";
+      $sql = "SELECT * FROM `user` WHERE email=:name";
       $query = $dbh -> prepare($sql);
       $query-> bindParam(':name', $name, PDO::PARAM_STR);
       $query->execute();
@@ -110,7 +110,7 @@ else{
         <div class="tcard p-3 py-4">
             <div class="text-center"> <img src="../images/iste.png" width="100" class="rounded-circle">
                 <h3 class="mt-4"><?php echo htmlentities("$result->name");?></h3> <span class="mt-1 clearfix"></span> 
-                <h5 style="font-weight: bold;" class="mt-10"><?php echo htmlentities("$result->branch");?>,<?php echo htmlentities("$result->batch");?></h5>
+                <h5 style="font-weight: bold;" class="mt-10"><?php echo htmlentities("$result->branch");?></h5>
                 <h5  style="font-weight: bold;" class="mt-10">#<?php echo htmlentities("$result->id");?></h5>
                 <div class="social-buttons mt-5"> 
                     <button style="color:black;" class="tneo-button">I</button> 
