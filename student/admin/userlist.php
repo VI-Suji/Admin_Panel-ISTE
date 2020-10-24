@@ -12,15 +12,10 @@ if(isset($_GET['del']) && isset($_GET['name']))
 $id=$_GET['del'];
 $name=$_GET['name'];
 
-$sql = "delete from users WHERE id=:id";
+$sql = "delete from user_voucher WHERE id=:id";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
-
-$sql2 = "insert into deleteduser (email) values (:name)";
-$query2 = $dbh->prepare($sql2);
-$query2 -> bindParam(':name',$name, PDO::PARAM_STR);
-$query2 -> execute();
 
 $msg="Data Deleted successfully";
 }
@@ -28,8 +23,8 @@ $msg="Data Deleted successfully";
 if(isset($_REQUEST['unconfirm']))
 	{
 	$aeid=intval($_GET['unconfirm']);
-	$memstatus=1;
-	$sql = "UPDATE users SET status=:status WHERE  id=:aeid";
+	$memstatus=2;
+	$sql = "UPDATE user_voucher SET status=:status WHERE  id=:aeid";
 	$query = $dbh->prepare($sql);
 	$query -> bindParam(':status',$memstatus, PDO::PARAM_STR);
 	$query-> bindParam(':aeid',$aeid, PDO::PARAM_STR);
@@ -41,7 +36,7 @@ if(isset($_REQUEST['unconfirm']))
 	{
 	$aeid=intval($_GET['confirm']);
 	$memstatus=0;
-	$sql = "UPDATE users SET status=:status WHERE  id=:aeid";
+	$sql = "UPDATE user_voucher SET status=:status WHERE  id=:aeid";
 	$query = $dbh->prepare($sql);
 	$query -> bindParam(':status',$memstatus, PDO::PARAM_STR);
 	$query-> bindParam(':aeid',$aeid, PDO::PARAM_STR);
@@ -128,21 +123,15 @@ if(isset($_REQUEST['unconfirm']))
 										<th>#</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Branch</th>
                                                 <th>Batch</th>
                                                 <th>Phone</th>
-                                                <th>Pref 1</th>
-                                                <th>Pref 2</th>
-                                                <th>Pref 3</th>
-                                                <th>Pref 4</th>
-												<th>Why</th>
-												<th>Text</th>
+												<th>Need</th>
 										</tr>
 									</thead>
 									
 									<tbody>
 
-<?php $sql = "SELECT * from  users ";
+<?php $sql = "SELECT * from  user_voucher ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -155,25 +144,18 @@ foreach($results as $result)
 											<td><?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->name);?></td>
 											<td><?php echo htmlentities($result->email);?></td>
-											<td><?php echo htmlentities($result->branch);?></td>
                                             <td><?php echo htmlentities($result->batch);?></td>
-                                            <td><?php echo htmlentities($result->mobile);?></td>
-                                            <td><?php echo htmlentities($result->prefa);?></td>
-                                            <td><?php echo htmlentities($result->prefb);?></td>
-                                            <td><?php echo htmlentities($result->prefc);?></td>
-                                            <td><?php echo htmlentities($result->prefd);?></td>
-                                            <td><?php echo htmlentities($result->why);?></td>
-                                            <td><?php echo htmlentities($result->text);?></td>
+                                            <td><?php echo htmlentities($result->phone);?></td>
+                                            <td><?php echo htmlentities($result->need);?></td>
                                             <td>
                                             
                                             <?php if($result->status == 1)
                                                     {?>
-                                                    <a href="userlist.php?confirm=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to UnConfirm the Account')">Confirmed <i class="fa fa-check-circle"></i></a> 
+                                                    <a href="userlist.php?confirm=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Reject the Voucher')">Reject <i class="fa fa-check-circle"></i></a> 
                                                     <?php } else {?>
-                                                    <a href="userlist.php?unconfirm=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Confirm the Account')">Un-Confirmed <i class="fa fa-times-circle"></i></a>
+                                                    <a href="userlist.php?unconfirm=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Accept the Voucher')">Accept <i class="fa fa-times-circle"></i></a>
 													<?php } ?>
 													<br>
-													<a href="edit-user.php?edit=<?php echo $result->id;?>" onclick="return confirm('Do you want to Edit');">&nbsp; <i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
 													<a href="userlist.php?del=<?php echo $result->id;?>&name=<?php echo htmlentities($result->email);?>" onclick="return confirm('Do you want to Delete');"><i class="fa fa-trash" style="color:red"></i></a>&nbsp;&nbsp;
 											</td>
 										</tr>

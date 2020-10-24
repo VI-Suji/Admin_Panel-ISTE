@@ -37,8 +37,26 @@
             <ul class="nav-right">
                 <li class="header-notification">
                     <?php
-                    $sql = "SELECT * FROM `notification`";
+                    $ema=$_SESSION['alogin'];
+                    $s = "SELECT * from  `user`";
+                    $q = $dbh -> prepare($s);
+                    $q->execute();
+                    $results=$q->fetchAll(PDO::FETCH_OBJ);
+                    if($q->rowCount() > 0)
+                    {
+                    foreach($results as $result)
+                    {			
+                        if($result->email==$ema)	{
+                            $id=$result->id;
+                            // echo "<script type='text/javascript'>alert('$id');</script>";
+                        }
+                    }
+                    }
+                    $stat='0';
+                    $sql = "SELECT * FROM `user_voucher` where status=:stat and memid=:id";
                     $query = $dbh->prepare($sql);
+                    $query-> bindParam(':stat', $stat, PDO::PARAM_STR);
+                    $query-> bindParam(':id', $id, PDO::PARAM_STR);
                     $cnt = 0;
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -67,8 +85,8 @@
                                                 <h5 class="notification-user">
                                                     <?php echo htmlentities("$result->name"); ?> </h5>
                                                 <p class="notification-msg">
-                                                    <?php echo htmlentities("$result->description"); ?></p>
-                                                <span class="notification-time"><?php echo htmlentities("$result->date"); ?></span>
+                                                    <?php echo htmlentities("Your voucher has got rejected "); ?></p>
+                                                <span class="notification-time"></span>
                                             </div>
                                         </div>
                                     </li>
@@ -87,7 +105,7 @@
                 </li>
                 <?php
                 $name = $_SESSION['alogin'];
-                $sql = "SELECT * FROM `user` WHERE name=:name";
+                $sql = "SELECT * FROM `user` WHERE email=:name";
                 $query = $dbh->prepare($sql);
                 $query->bindParam(':name', $name, PDO::PARAM_STR);
                 $query->execute();
@@ -303,6 +321,15 @@
                                     <i class="feather icon-layers"></i>
                                 </span>
                                 <span class="pcoded-mtext">Server access</span>
+                            </a>
+                            
+                        </li>
+                        <li class="pcoded-hasmenu">
+                            <a href="voucher.php" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-mail"></i>
+                                </span>
+                                <span class="pcoded-mtext">Voucher access</span>
                             </a>
                             
                         </li>

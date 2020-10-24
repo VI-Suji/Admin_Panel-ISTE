@@ -108,7 +108,7 @@ else{
       {	?>
                     <div class="container d-flex justify-content-center">
         <div class="tcard p-3 py-4">
-            <div class="text-center"> <img src="../images/iste.png" width="100" class="rounded-circle">
+            <div class="text-center"> <img src="./admin/images/iste.png" width="100" class="rounded-circle">
                 <h3 class="mt-4"><?php echo htmlentities("$result->name");?></h3> <span class="mt-1 clearfix"></span> 
                 <h5 style="font-weight: bold;" class="mt-10"><?php echo htmlentities("$result->branch");?></h5>
                 <h5  style="font-weight: bold;" class="mt-10">#<?php echo htmlentities("$result->id");?></h5>
