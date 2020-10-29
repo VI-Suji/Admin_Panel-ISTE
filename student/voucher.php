@@ -79,7 +79,7 @@ $results=$q->fetchAll(PDO::FETCH_OBJ);
 
 if($q->rowCount() > 0)
 {
-    echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
+    //echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
     
 if(isset($_POST['login']))
 {
