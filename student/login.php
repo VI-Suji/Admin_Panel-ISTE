@@ -164,7 +164,7 @@ echo "<script type='text/javascript'> document.location = 'index.php'; </script>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <button name="login" type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" onclick="window.location.href='index.html'">REGISTER NOW </button>
+                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" onclick="window.location.href='http://join.istetkmce.in/index.html'">REGISTER NOW </button>
                                    </div>
                                 </div>
                                 <!-- <p class="text-inverse text-left">Don't have an account?<a href="auth-sign-up-social.html"> <b>Register here </b></a>for free!</p> -->
