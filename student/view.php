@@ -100,17 +100,28 @@ else{
                                             <div class="page-body">
                                                 <div class="row">
                                                     <div class="col-sm-12">
+							<?php 
+								$sql ="SELECT * from newsletter";
+								$query = $dbh -> prepare($sql);
+								$query->execute();
+								$results=$query->fetchAll(PDO::FETCH_OBJ);
+     								if($query->rowCount() > 0)
+								{
+									foreach($results as $result)
+									{	
+							?>
 
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                <h5>Coming Soon...</h5>
+                                                                <h5><?php echo htmlentities($results->month) ?> (<?php echo htmlentities($results->year) ?>)</h5>
                                                             </div>
                                                             <div class="row card-block">
                                                                 <div class="col-md-12">
-                                                                    
+                                                        		<a href="<?php echo htmlentities($results->link) ?>"><i class="feather icon-eye">View now</i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
+							<?php }} ?>
 
                                                     </div>
                                                 </div>
