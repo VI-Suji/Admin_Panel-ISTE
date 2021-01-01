@@ -113,11 +113,11 @@ else{
 
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                <h5><?php echo htmlentities($results->month) ?> (<?php echo htmlentities($results->year) ?>)</h5>
+                                                                <h5><?php echo htmlentities($result->month) ?> (<?php echo htmlentities($result->year) ?>)</h5>
                                                             </div>
                                                             <div class="row card-block">
                                                                 <div class="col-md-12">
-                                                        		<a href="<?php echo htmlentities($results->link) ?>"><i class="feather icon-eye">View now</i></a>
+                                                        		<a href="<?php echo htmlentities($result->link) ?>"><i class="feather icon-eye">View now</i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
