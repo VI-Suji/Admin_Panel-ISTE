@@ -203,7 +203,6 @@ else
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                    <div class="row">
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Status</label>
                                                         <div class="col-sm-8 col-lg-5">
                                                             <div class="input-group">
