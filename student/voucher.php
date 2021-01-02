@@ -203,22 +203,27 @@ else
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label class="col-sm-4 col-lg-1 col-form-label">Phone</label>
+                                                    <div class="row">
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Status</label>
                                                         <div class="col-sm-8 col-lg-5">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
                                                                 </span>
-                                                                <input type="number" name="phone" class="form-control">
+                                                                <select name="phone" class="form-control">
+                                                                    <option name="Static" value="CREDIT">Credit
+                                                                    </option>
+                                                                    <option name="Dynamic" value="DEBIT">Debit</option>
+                                                                </select>
                                                             </div>
                                                         </div>
-                                                        <label class="col-sm-4 col-lg-1 col-form-label">Batch</label>
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Amount</label>
                                                         <div class="col-sm-8 col-lg-5">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
                                                                 </span>
-                                                                <input type="text" name="batch" class="form-control">
+                                                                <input type="number" name="batch" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
