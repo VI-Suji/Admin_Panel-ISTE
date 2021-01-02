@@ -107,7 +107,7 @@ $phone=$_POST['phone'];
 $batch=$_POST['batch'];
 $need=$_POST['need'];
 
-$sql ="INSERT INTO `user_voucher` (memid, name, email, phone, batch, need,status) VALUES(:memid, :name, :email, :phone, :batch, :need, '1')";
+$sql ="INSERT INTO `user_voucher` (memid, name, email, type, amount, need,status) VALUES(:memid, :name, :email, :phone, :batch, :need, '1')";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':memid', $memid, PDO::PARAM_STR);
 $query-> bindParam(':name', $name, PDO::PARAM_STR);
