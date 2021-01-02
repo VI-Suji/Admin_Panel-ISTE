@@ -6,9 +6,46 @@ if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:login.php');
 }
-else{?>
+else{
+if(isset($_POST['login']))
+{
+	// echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
 
-    <!DOCTYPE html>
+$name=$_POST['name'];
+$email=$_POST['email'];
+$phone=$_POST['phone'];
+$branch=$_POST['branch'];
+$batch=$_POST['batch'];
+$year=$_POST['year'];
+$purpose=$_POST['purpose'];
+$duration=$_POST['duration'];
+
+
+$sql ="INSERT INTO `server` (name, email, phone, branch, batch, year, purpose, duration) VALUES(:name, :email, :phone, :branch, :batch, :year, :purpose, :duration)";
+$query= $dbh -> prepare($sql);
+$query-> bindParam(':name', $name, PDO::PARAM_STR);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> bindParam(':phone', $phone, PDO::PARAM_STR);
+$query-> bindParam(':branch', $branch, PDO::PARAM_STR);
+$query-> bindParam(':batch', $batch, PDO::PARAM_STR);
+$query-> bindParam(':year', $year, PDO::PARAM_STR);
+$query-> bindParam(':purpose', $purpose, PDO::PARAM_STR);
+$query-> bindParam(':duration', $duration, PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+echo "<script type='text/javascript'>alert('Your entry has updated');</script>";
+echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+}
+else 
+{
+	echo "<script type='text/javascript'>alert('Something went wrong. Please fill and try again');</script>";
+}
+
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from colorlib.com/polygon/admindek/default/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:07:52 GMT -->
@@ -54,81 +91,6 @@ else{?>
 </head>
 
 <body>
-<?php
-$ema=$_SESSION['alogin'];
-$s = "SELECT * from  `user`";
-$q = $dbh -> prepare($s);
-$q->execute();
-$results=$q->fetchAll(PDO::FETCH_OBJ);
-if($q->rowCount() > 0)
-{
-foreach($results as $result)
-{			
-    if($result->email==$ema)	{
-        $memid=$result->id;
-        // echo "<script type='text/javascript'>alert('$memid');</script>";
-    }
-}
-}
-
-$s = "SELECT * from  `user_execom` where id=:memid";
-$q = $dbh -> prepare($s);
-$q-> bindParam(':memid', $memid, PDO::PARAM_STR);
-$q->execute();
-$results=$q->fetchAll(PDO::FETCH_OBJ);
-
-if($q->rowCount() > 0)
-{
-    //echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
-    
-if(isset($_POST['login']))
-{
-    // echo "<script type='text/javascript'>alert('1 Updated Succesfully');</script>";
-    
-// $ema=$_SESSION['alogin'];
-// $s = "SELECT * from  `user`";
-// $q = $dbh -> prepare($s);
-// $q->execute();
-// $results=$q->fetchAll(PDO::FETCH_OBJ);
-// if($q->rowCount() > 0)
-// {
-// foreach($results as $result)
-// {			
-//     if($result->email==$ema)	{
-//         $memid=$result->id;
-//         // echo "<script type='text/javascript'>alert('$memid');</script>";
-//     }
-// }
-// }
-
-$name=$_POST['name'];
-$email=$_POST['email'];
-$phone=$_POST['phone'];
-$batch=$_POST['batch'];
-$need=$_POST['need'];
-
-$sql ="INSERT INTO `user_voucher` (memid, name, email, phone, batch, need,status) VALUES(:memid, :name, :email, :phone, :batch, :need, '1')";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':memid', $memid, PDO::PARAM_STR);
-$query-> bindParam(':name', $name, PDO::PARAM_STR);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':phone', $phone, PDO::PARAM_STR);
-$query-> bindParam(':batch', $batch, PDO::PARAM_STR);
-$query-> bindParam(':need', $need, PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-echo "<script type='text/javascript'>alert('Your entry has updated');</script>";
-echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-}
-else 
-{
-	echo "<script type='text/javascript'>alert('Something went wrong. Please fill and try again');</script>";
-}
-
-}
-?>
 
     <div class="loader-bg">
         <div class="loader-bar"></div>
@@ -138,7 +100,7 @@ else
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            <?php include('top.php');?>
+        <?php include('top.php');?>
                     <div class="pcoded-content">
 
                         <div class="page-header card">
@@ -147,8 +109,8 @@ else
                                     <div class="page-header-title">
                                         <i class="feather icon-server bg-c-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Voucher</h5>
-                                            <span>Request for voucher!</span>
+                                            <h5>Server Request</h5>
+                                            <span>Request for the server ISTE form</span>
                                         </div>
                                     </div>
                                 </div>
@@ -158,17 +120,17 @@ else
                                             <li class="breadcrumb-item">
                                                 <a href="index.php"><i class="feather icon-home"></i></a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Voucher</a>
+                                            <li class="breadcrumb-item"><a href="#!">Forms</a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="#!">Request</a>
+                                                <a href="#!">Server Request</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <form method="POST">
+
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
@@ -179,7 +141,7 @@ else
                                                 <h4>Details</h4>
                                             </div>
                                             <div class="card-block">
-
+                                            <form method="POST">
                                                 <div class="m-b-10">
                                                     <h4 class="sub-title">Basic Details</h4>
                                                     <div class="row">
@@ -203,134 +165,97 @@ else
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                    <div class="row">
-                                                        <label class="col-sm-4 col-lg-1 col-form-label">Status</label>
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Phone</label>
                                                         <div class="col-sm-8 col-lg-5">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
                                                                 </span>
-                                                                <select name="phone" class="form-control">
-                                                                    <option name="Static" value="CREDIT">Credit
+                                                                <input type="number" name="phone" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Branch</label>
+                                                        <div class="col-sm-8 col-lg-5">
+                                                            <div class="input-group">
+                                                                <span class="input-group-prepend">
+                                                                    <label class="input-group-text">#</label>
+                                                                </span>
+                                                                <input type="text" name="branch" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Batch</label>
+                                                        <div class="col-sm-8 col-lg-5">
+                                                            <div class="input-group">
+                                                                <span class="input-group-prepend">
+                                                                    <label class="input-group-text">#</label>
+                                                                </span>
+                                                                <input type="text" name="batch" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Year</label>
+                                                        <div class="col-sm-8 col-lg-5">
+                                                            <div class="input-group">
+                                                                <span class="input-group-prepend">
+                                                                    <label class="input-group-text">#</label>
+                                                                </span>
+                                                                <input type="number" name="year" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Purpose</label>
+                                                        <div class="col-sm-8 col-lg-5">
+                                                            <div class="input-group">
+                                                                <span class="input-group-prepend">
+                                                                    <label class="input-group-text">#</label>
+                                                                </span>
+                                                                <select name="purpose" class="form-control">
+                                                                    <option name="Static" value="Static">Static
+                                                                        Webpage
                                                                     </option>
-                                                                    <option name="Dynamic" value="DEBIT">Debit</option>
+                                                                    <option name="Dynamic" value="Dynamic">Dynamic
+                                                                        Webpage</option>
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <label class="col-sm-4 col-lg-1 col-form-label">Amount</label>
-                                                        <div class="col-sm-8 col-lg-5">
+                                                        <label class="col-sm-4 col-lg-2 col-form-label">Duration In
+                                                            Months</label>
+                                                        <div class="col-sm-8 col-lg-4">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
                                                                 </span>
-                                                                <input type="number" name="batch" class="form-control">
+                                                                <input type="number" name="duration"
+                                                                    class="form-control" value="In months">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                    <label class="col-sm-4 col-lg-1 col-form-label">Need</label>
-                                                        <div class="col-sm-8 col-lg-8">
-                                                            <div class="input-group">
-                                                                <span class="input-group-prepend">
-                                                                    <label class="input-group-text">#</label>
-                                                                </span>
-                                                                <textarea class="form-control" name="need" rows="5" cols="50"></textarea>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    </div>
                                                         <div class="row m-t-30">
                                                             <div class="col-md-12">
                                                                 <button name="login" type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">SUBMIT</button>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
-                                </div>
 
-                                <div id="styleSelector">
+                                    <div id="styleSelector">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-<?php }else{?>
-    <div class="loader-bg">
-        <div class="loader-bar"></div>
-    </div>
-
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
-
-            <?php include('top.php');?>
-                    <div class="pcoded-content">
-
-                        <div class="page-header card">
-                            <div class="row align-items-end">
-                                <div class="col-lg-8">
-                                    <div class="page-header-title">
-                                        <i class="feather icon-server bg-c-blue"></i>
-                                        <div class="d-inline">
-                                            <h5>Voucher</h5>
-                                            <span>Request for voucher!</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="page-header-breadcrumb">
-                                        <ul class=" breadcrumb breadcrumb-title">
-                                            <li class="breadcrumb-item">
-                                                <a href="index.php"><i class="feather icon-home"></i></a>
-                                            </li>
-                                            <li class="breadcrumb-item"><a href="#!">Voucher</a>
-                                            </li>
-                                            <li class="breadcrumb-item">
-                                                <a href="#!">Request</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <form method="POST">
-                        <div class="pcoded-inner-content">
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <div class="page-body">
-
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>View Restricted</h4>
-                                            </div>
-                                            <div class="card-block">
-
-                                                <div class="m-b-10">
-                                                    <h4 class="sub-title">Only Execom members can view this</h4>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="styleSelector">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-<?php } ?>
 
 
-        <!--[if lt IE 10]>
+            <!--[if lt IE 10]>
 <div class="ie-warning">
     <h1>Warning!!</h1>
     <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
@@ -373,36 +298,37 @@ else
 <![endif]-->
 
 
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery.min.js"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery-ui.min.js"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/popper.min.js"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/bootstrap.min.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery.min.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery-ui.min.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/popper.min.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/bootstrap.min.js"></script>
 
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery.slimscroll.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/jquery.slimscroll.js"></script>
 
-        <script src="js/waves.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
+            <script src="js/waves.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
 
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/modernizr.js"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/css-scrollbars.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/modernizr.js"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/css-scrollbars.js"></script>
 
-        <script src="js/pcoded.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
-        <script src="js/vertical-layout.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
-        <script src="js/jquery.mcustomscrollbar.concat.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript" src="js/script.js"></script>
+            <script src="js/pcoded.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
+            <script src="js/vertical-layout.min.js" type="461d1add94eeb239155d648f-text/javascript"></script>
+            <script src="js/jquery.mcustomscrollbar.concat.min.js"
+                type="461d1add94eeb239155d648f-text/javascript"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript" src="js/script.js"></script>
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-            type="461d1add94eeb239155d648f-text/javascript"></script>
-        <script type="461d1add94eeb239155d648f-text/javascript">
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+                type="461d1add94eeb239155d648f-text/javascript"></script>
+            <script type="461d1add94eeb239155d648f-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
 </script>
-        <script src="js/rocket-loader.min.js" data-cf-settings="461d1add94eeb239155d648f-|49" defer=""></script>
+            <script src="js/rocket-loader.min.js" data-cf-settings="461d1add94eeb239155d648f-|49" defer=""></script>
 </body>
 
 <!-- Mirrored from colorlib.com/polygon/admindek/default/form-elements-add-on.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:09:13 GMT -->
 
 </html>
-<?php } ?>
+      <?php } ?>
