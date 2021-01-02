@@ -154,7 +154,7 @@ echo "<script type='text/javascript'> document.location = 'index.php'; </script>
                                 <div class="form-group form-primary">
                                     <input type="text" name="username" class="form-control" required="">
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Username</label>
+                                    <label class="float-label">User Email</label>
                                 </div>
                                 <div class="form-group form-primary">
                                     <input type="password" name="password" class="form-control" required="">
