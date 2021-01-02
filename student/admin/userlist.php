@@ -123,8 +123,8 @@ if(isset($_REQUEST['unconfirm']))
 										<th>#</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Batch</th>
-                                                <th>Phone</th>
+                                                <th>Type</th>
+                                                <th>Amount</th>
 												<th>Need</th>
 										</tr>
 									</thead>
@@ -144,8 +144,8 @@ foreach($results as $result)
 											<td><?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->name);?></td>
 											<td><?php echo htmlentities($result->email);?></td>
-                                            <td><?php echo htmlentities($result->batch);?></td>
-                                            <td><?php echo htmlentities($result->phone);?></td>
+                                            <td><?php echo htmlentities($result->type);?></td>
+                                            <td><?php echo htmlentities($result->amount);?></td>
                                             <td><?php echo htmlentities($result->need);?></td>
                                             <td>
                                             
