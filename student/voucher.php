@@ -238,7 +238,7 @@ else
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                    <label class="col-sm-4 col-lg-3 col-form-label">Need</label>
+                                                    <label class="col-sm-4 col-lg-1 col-form-label">Need</label>
                                                         <div class="col-sm-8 col-lg-8">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
