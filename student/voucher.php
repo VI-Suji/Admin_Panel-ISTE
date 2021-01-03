@@ -206,7 +206,7 @@ else
                                                     </div>
                                                     <div class="row">
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Status</label>
-                                                        <div class="col-sm-8 col-lg-4">
+                                                        <div class="col-sm-8 col-lg-3">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
@@ -219,7 +219,7 @@ else
                                                             </div>
                                                         </div>
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Amount</label>
-                                                        <div class="col-sm-8 col-lg-4">
+                                                        <div class="col-sm-8 col-lg-3">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
@@ -228,7 +228,7 @@ else
                                                             </div>
                                                         </div>
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Date</label>
-                                                        <div class="col-sm-8 col-lg-4">
+                                                        <div class="col-sm-8 col-lg-3">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
