@@ -105,15 +105,17 @@ $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
 $batch=$_POST['batch'];
+$date=$_POST['date'];
 $need=$_POST['need'];
 
-$sql ="INSERT INTO `user_voucher` (memid, name, email, type, amount, need,status) VALUES(:memid, :name, :email, :phone, :batch, :need, '1')";
+$sql ="INSERT INTO `user_voucher` (memid, name, email, type, amount,dates, need,status) VALUES(:memid, :name, :email, :phone, :batch, :date, :need, '1')";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':memid', $memid, PDO::PARAM_STR);
 $query-> bindParam(':name', $name, PDO::PARAM_STR);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':phone', $phone, PDO::PARAM_STR);
 $query-> bindParam(':batch', $batch, PDO::PARAM_STR);
+$query-> bindParam(':date', $date, PDO::PARAM_STR);
 $query-> bindParam(':need', $need, PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -204,7 +206,7 @@ else
                                                     </div>
                                                     <div class="row">
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Status</label>
-                                                        <div class="col-sm-8 col-lg-5">
+                                                        <div class="col-sm-8 col-lg-4">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
@@ -217,12 +219,21 @@ else
                                                             </div>
                                                         </div>
                                                         <label class="col-sm-4 col-lg-1 col-form-label">Amount</label>
-                                                        <div class="col-sm-8 col-lg-5">
+                                                        <div class="col-sm-8 col-lg-4">
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <label class="input-group-text">#</label>
                                                                 </span>
                                                                 <input type="number" name="batch" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <label class="col-sm-4 col-lg-1 col-form-label">Date</label>
+                                                        <div class="col-sm-8 col-lg-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-prepend">
+                                                                    <label class="input-group-text">#</label>
+                                                                </span>
+                                                                <input type="date" name="date" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
