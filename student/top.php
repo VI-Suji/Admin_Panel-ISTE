@@ -130,6 +130,11 @@
                                             <i class="feather icon-settings"></i> Change Password
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="edit.php">
+                                            <i class="feather icon-settings"></i> Edit details
+                                        </a>
+                                    </li>
                                     <!-- <li>
                                             <a href="#">
                                                 <i class="feather icon-user"></i> Profile
