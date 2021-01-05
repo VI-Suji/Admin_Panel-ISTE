@@ -16,7 +16,7 @@ $mobile=$_POST['mobile'];
 $address=$_POST['address'];
 $username=$_SESSION['alogin'];
 
-$con="UPDATE user set name=:name, phone=:mobile, addr=:address where name=:username";
+$con="UPDATE user set name=:name, phone=:mobile, addr=:address where email=:username";
 $chngpwd1 = $dbh->prepare($con);
 $chngpwd1-> bindParam(':name', $name, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':mobile', $mobile, PDO::PARAM_STR);
