@@ -26,11 +26,7 @@ $chngpwd1->execute();
 echo "<script type='text/javascript'>alert('Succesfully changed');</script>";
 header('location:login.php');
 }
-else {
-$error="Something went wrong ";
-header('location:login.php');
-}
-if(isset($_POST['back']))
+else if(isset($_POST['back']))
 	{
         header('location:index.php');
     }
