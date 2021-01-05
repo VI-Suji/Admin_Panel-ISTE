@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('../includes/config.php');
+echo "<script type='text/javascript'>alert($_SESSION['alogin']);</script>";
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
