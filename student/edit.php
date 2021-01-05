@@ -8,13 +8,13 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
+    $username=$_SESSION['alogin'];
 // Code for change password	
 if(isset($_POST['update']))
 	{
 $name=$_POST['name'];
 $mobile=$_POST['mobile'];
 $address=$_POST['address'];
-$username=$_SESSION['alogin'];
 
 $con="UPDATE user set name=:name, phone=:mobile, addr=:address where email=:username";
 $chngpwd1 = $dbh->prepare($con);
@@ -93,7 +93,7 @@ else if(isset($_POST['back']))
                         <div class="page-header-title">
                             <i class="feather icon-lock bg-c-blue"></i>
                             <div class="d-inline">
-                                <h5>Change password</h5>
+                                <h5>Change Details</h5>
                                 <span>--------------</span>
                             </div>
                         </div>
@@ -116,6 +116,17 @@ else if(isset($_POST['back']))
 
                                             <div class="m-b-10">
                                                 <h4 class="sub-title">Enter</h4>
+                                                <?php 
+                                                    $sql="SELECT * FROM `user` WHERE `email`=:email";
+                                                    $query=$dbh->prepare($sql);
+                                                    $query-> bindParam(':email', $username, PDO::PARAM_STR);
+                                                    $query->execute();
+                                                    $results=$query->fetchAll(PDO::FETCH_OBJ);
+                                                    if($query->rowCount() > 0)
+                                                    {
+                                                        foreach($results as $result)
+                                                        {	?>
+
                                                 <div class="row">
                                                     <label class="col-sm-4 col-lg-6 col-form-label">Name</label>
                                                     <div class="col-sm-8 col-lg-6">
@@ -123,7 +134,7 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <input type="text" name="name" class="form-control">
+                                                            <input type="text" name="name" class="form-control" value="<?php echo htmlentities($result-name) ?>">
                                                         </div>
                                                     </div>
 
@@ -135,7 +146,7 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <input type="number" name="mobile" class="form-control">
+                                                            <input type="number" name="mobile" class="form-control" value="<?php echo htmlentities($result-phone) ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -146,10 +157,11 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <textarea class="form-control" name="address" rows="5" cols="50"></textarea>
+                                                            <textarea class="form-control" name="address" rows="5" cols="50">value="<?php echo htmlentities($result-addr) ?>"</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php }} ?>
                                                 <div class="row m-t-30">
                                                     <div class="col-md-6">
                                                         <button name="update" type="submit"
