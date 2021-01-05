@@ -132,7 +132,7 @@
                                     </li>
                                     <li>
                                         <a href="edit.php">
-                                            <i class="feather icon-settings"></i> Edit details
+                                            <i class="feather icon-user"></i> Edit details
                                         </a>
                                     </li>
                                     <!-- <li>
