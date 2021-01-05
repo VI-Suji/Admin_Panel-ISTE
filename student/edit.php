@@ -24,10 +24,6 @@ $chngpwd1-> bindParam(':username', $username, PDO::PARAM_STR);
 $chngpwd1->execute();
 echo "<script type='text/javascript'>alert('Succesfully changed');</script>";
 header('location:login.php');
-    }else{
-        echo "<script type='text/javascript'>alert('Something went wrong');</script>";
-        header('location:login.php');
-    }
 }
 else {
 $error="Something went wrong ";
