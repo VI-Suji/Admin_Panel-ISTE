@@ -2,8 +2,8 @@
 session_start();
 error_reporting(0);
 include('../includes/config.php');
-var_dump($_SESSION['alogin']);
-if(!(strlen($_SESSION['alogin']))==0)
+// var_dump($_SESSION['alogin']);
+if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
 }
