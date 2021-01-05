@@ -134,7 +134,7 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <input type="text" name="name" class="form-control" value="<?php echo htmlentities($result-name) ?>">
+                                                            <input type="text" name="name" class="form-control" value="<?php echo htmlentities($result->name) ?>">
                                                         </div>
                                                     </div>
 
@@ -146,7 +146,7 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <input type="number" name="mobile" class="form-control" value="<?php echo htmlentities($result-phone) ?>">
+                                                            <input type="number" name="mobile" class="form-control" value="<?php echo htmlentities($result->phone) ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -157,7 +157,7 @@ else if(isset($_POST['back']))
                                                             <span class="input-group-prepend">
                                                                 <label class="input-group-text">#</label>
                                                             </span>
-                                                            <textarea class="form-control" name="address" rows="5" cols="50">value="<?php echo htmlentities($result-addr) ?>"</textarea>
+                                                            <textarea class="form-control" name="address" rows="5" cols="50">value="<?php echo htmlentities($result->addr) ?>"</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
