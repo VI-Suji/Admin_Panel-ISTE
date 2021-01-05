@@ -29,7 +29,6 @@ else {
 $error="Something went wrong ";
 header('location:login.php');
 }
-}
 if(isset($_POST['back']))
 	{
         header('location:index.php');
