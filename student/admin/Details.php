@@ -1,15 +1,15 @@
 <?php
 session_start();
 error_reporting(0);
-// define('DB_HOST','athena21.live');
-// define('DB_USER','athena_root');
-// define('DB_PASS','Athena@2021 ');
-// define('DB_NAME','athena_astra');
+define('DB_HOST','athena21.live');
+define('DB_USER','athena_root');
+define('DB_PASS','Athena@2021 ');
+define('DB_NAME','athena_astra');
 
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','iste');
+// define('DB_HOST','localhost');
+// define('DB_USER','root');
+// define('DB_PASS','');
+// define('DB_NAME','iste');
 // Establish database connection.
 try
 {
